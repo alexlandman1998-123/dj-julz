@@ -1,8 +1,8 @@
 # DJ JULz
 
-Production-ready premium marketing starter built with Next.js 15, React 19,
-TypeScript, Tailwind CSS v4, shadcn/ui, Motion, React Hook Form, Zod, and
-Resend-ready email infrastructure.
+Mobile-first wireframe for the DJ Julz website, built with Next.js 15, React 19,
+TypeScript, Tailwind CSS v4, shadcn/ui foundations, and a reusable component
+structure for moving into high-fidelity UI design.
 
 ## Scripts
 
@@ -17,11 +17,10 @@ npm run format
 ## Stack
 
 - Next.js App Router with static-first pages and Metadata API
-- Tailwind CSS v4 with CSS variables, design tokens, typography plugin, and
-  future dark-mode compatibility
-- shadcn/ui with Radix primitives and Lucide icons
-- Motion scroll reveals and micro-interactions
-- React Hook Form + Zod booking form schema
+- Mobile-first section hierarchy for the complete homepage journey
+- Tailwind CSS v4 with CSS variables and future dark-mode compatibility
+- shadcn/ui foundations with Radix primitives and Lucide icons
+- Placeholder planner flow for the signature booking feature
 - Lazy Resend SDK helper for build-safe email integration
 - Sitemap, robots, Open Graph, Twitter cards, canonical URL, and structured data
 
@@ -32,11 +31,17 @@ src/
   app/
   components/
     ui/
-    layout/
-    sections/
-    planner/
     navigation/
-    shared/
+    hero/
+    stats/
+    about/
+    packages/
+    planner/
+    gallery/
+    reviews/
+    availability/
+    faq/
+    footer/
   config/
   data/
   hooks/

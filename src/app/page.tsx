@@ -1,14 +1,15 @@
-import { Footer } from "@/components/layout/footer";
-import { SiteNavigation } from "@/components/navigation/site-navigation";
-import { CTA } from "@/components/sections/cta";
-import { Experience } from "@/components/sections/experience";
-import { FAQ } from "@/components/sections/faq";
-import { GalleryGrid } from "@/components/sections/gallery-grid";
-import { Hero } from "@/components/sections/hero";
-import { Packages } from "@/components/sections/packages";
-import { Planner } from "@/components/sections/planner";
-import { Stats } from "@/components/sections/stats";
-import { Testimonials } from "@/components/sections/testimonials";
+import { About } from "@/components/about/about";
+import { Availability } from "@/components/availability/availability";
+import { ContactCTA } from "@/components/contact/contact-cta";
+import { FAQ } from "@/components/faq/faq";
+import { Footer } from "@/components/footer/footer";
+import { Gallery } from "@/components/gallery/gallery";
+import { Hero } from "@/components/hero/hero";
+import { Navigation } from "@/components/navigation/navigation";
+import { Packages } from "@/components/packages/packages";
+import { Planner } from "@/components/planner/planner";
+import { Reviews } from "@/components/reviews/reviews";
+import { Stats } from "@/components/stats/stats";
 import { getStructuredData } from "@/lib/structured-data";
 
 export default function Home() {
@@ -21,17 +22,18 @@ export default function Home() {
           __html: JSON.stringify(getStructuredData()),
         }}
       />
-      <SiteNavigation />
-      <main>
+      <Navigation />
+      <main className="bg-white text-neutral-900">
         <Hero />
         <Stats />
-        <Experience />
+        <About />
         <Packages />
-        <GalleryGrid />
         <Planner />
-        <Testimonials />
+        <Gallery />
+        <Reviews />
+        <Availability />
         <FAQ />
-        <CTA />
+        <ContactCTA />
       </main>
       <Footer />
     </>

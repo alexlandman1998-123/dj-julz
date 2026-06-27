@@ -1,12 +1,11 @@
 import Link from "next/link";
 
-import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
     <main className="min-h-screen py-32">
-      <Container className="max-w-2xl text-center">
+      <div className="mx-auto max-w-2xl px-5 text-center">
         <p className="text-sm font-medium text-muted-foreground">404</p>
         <h1 className="mt-6 text-balance font-heading text-5xl leading-none md:text-7xl">
           This page missed the drop.
@@ -17,7 +16,7 @@ export default function NotFound() {
         <Button asChild className="mt-8 rounded-full">
           <Link href="/">Back home</Link>
         </Button>
-      </Container>
+      </div>
     </main>
   );
 }
