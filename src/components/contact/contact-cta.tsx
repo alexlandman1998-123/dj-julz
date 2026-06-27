@@ -1,12 +1,13 @@
 import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 
+import { MotionCard } from "@/components/shared/motion";
 import { Button } from "@/components/ui/button";
 
 export function ContactCTA() {
   return (
     <section id="contact" className="section-spacing bg-surface px-5">
-      <div className="premium-card mx-auto max-w-md bg-white p-6">
+      <MotionCard className="mx-auto max-w-md bg-white p-6">
         <p className="eyebrow">Start here</p>
         <h2 className="mt-3 font-heading text-5xl leading-[0.92] text-foreground">
           Let&apos;s make your event unforgettable.
@@ -26,7 +27,7 @@ export function ContactCTA() {
             </Link>
           </Button>
         </div>
-      </div>
+      </MotionCard>
     </section>
   );
 }

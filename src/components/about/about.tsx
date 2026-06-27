@@ -1,6 +1,9 @@
 import { CheckCircle2, Headphones, UsersRound } from "lucide-react";
 import Image from "next/image";
 
+import { MotionCard, Reveal } from "@/components/shared/motion";
+import { warmBlurDataUrl } from "@/lib/image-placeholders";
+
 const reasons = [
   "Clear communication before the event",
   "Music planned around the room and schedule",
@@ -11,7 +14,7 @@ export function About() {
   return (
     <section id="about" className="section-spacing px-5">
       <div className="mx-auto max-w-md">
-        <div className="premium-card overflow-hidden bg-surface">
+        <MotionCard className="overflow-hidden bg-surface">
           <div className="relative aspect-[5/4]">
             <Image
               src="/images/dj-julz-hero.png"
@@ -19,10 +22,12 @@ export function About() {
               fill
               sizes="(max-width: 640px) 90vw, 420px"
               className="object-cover object-[70%_center]"
+              placeholder="blur"
+              blurDataURL={warmBlurDataUrl}
             />
           </div>
-        </div>
-        <div className="mt-8">
+        </MotionCard>
+        <Reveal className="mt-8">
           <p className="eyebrow">About</p>
           <h2 className="section-title mt-3">
             A steady hand for the moments people remember.
@@ -51,7 +56,7 @@ export function About() {
             <Headphones className="size-5 text-sage" />
             <p className="caption">Built for clients who want taste, not spectacle.</p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

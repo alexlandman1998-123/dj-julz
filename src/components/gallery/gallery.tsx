@@ -1,7 +1,14 @@
+"use client";
+
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 
+import { Reveal } from "@/components/shared/motion";
 import { Button } from "@/components/ui/button";
+import { warmBlurDataUrl } from "@/lib/image-placeholders";
 
 const moments = [
   { title: "Ceremony arrival", position: "object-[58%_center]" },
@@ -13,17 +20,73 @@ const moments = [
 ];
 
 export function Gallery() {
+  const [selected, setSelected] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const reduceMotion = useReducedMotion();
+
+  const activeMoment = selected === null ? null : moments[selected];
+
+  const closeLightbox = useCallback(() => {
+    setSelected(null);
+  }, []);
+
+  const goTo = useCallback((direction: 1 | -1) => {
+    setSelected((current) => {
+      if (current === null) {
+        return current;
+      }
+
+      return (current + direction + moments.length) % moments.length;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (selected === null) {
+      return;
+    }
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowRight") {
+        goTo(1);
+      }
+
+      if (event.key === "ArrowLeft") {
+        goTo(-1);
+      }
+    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [closeLightbox, goTo, selected]);
+
   return (
     <section id="gallery" className="section-spacing bg-surface px-5">
       <div className="mx-auto max-w-md">
-        <p className="eyebrow">Gallery</p>
-        <h2 className="section-title mt-3">A quiet look at memorable rooms.</h2>
+        <Reveal>
+          <p className="eyebrow">Gallery</p>
+          <h2 className="section-title mt-3">A quiet look at memorable rooms.</h2>
+        </Reveal>
         <div className="mt-8 grid grid-cols-2 gap-3">
           {moments.map((moment, index) => (
-            <button
+            <motion.button
               key={moment.title}
               type="button"
               aria-label={`Open ${moment.title} image`}
+              onClick={() => setSelected(index)}
+              initial={reduceMotion ? false : { opacity: 1, y: 14, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.975 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.42, delay: index * 0.035 }}
               className={`group relative overflow-hidden rounded-[1.35rem] border border-border bg-surface-strong outline-none focus-visible:ring-3 focus-visible:ring-ring/35 ${
                 index === 0 || index === 5 ? "aspect-[4/5]" : "aspect-square"
               }`}
@@ -33,18 +96,105 @@ export function Gallery() {
                 alt=""
                 fill
                 sizes="(max-width: 640px) 45vw, 190px"
-                className={`object-cover ${moment.position}`}
+                className={`object-cover transition-transform duration-500 ease-[var(--ease-premium)] group-hover:scale-[1.03] ${moment.position}`}
+                placeholder="blur"
+                blurDataURL={warmBlurDataUrl}
               />
               <span className="absolute inset-x-3 bottom-3 rounded-full bg-white/90 px-3 py-2 text-left text-xs font-semibold text-foreground">
                 {moment.title}
               </span>
-            </button>
+            </motion.button>
           ))}
         </div>
         <Button asChild variant="outline" className="mt-7 w-full">
           <Link href="#gallery">View Full Gallery</Link>
         </Button>
       </div>
+      <AnimatePresence>
+        {activeMoment ? (
+          <motion.div
+            className="fixed inset-0 z-[80] grid place-items-center bg-foreground/85 p-4 backdrop-blur-md"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${activeMoment.title} gallery image`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            onClick={closeLightbox}
+          >
+            <motion.div
+              className="relative w-full max-w-md"
+              initial={reduceMotion ? false : { opacity: 1, y: 18, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: 10, scale: 0.98 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(event) => event.stopPropagation()}
+              onPointerDown={(event) => setTouchStart(event.clientX)}
+              onPointerUp={(event) => {
+                if (touchStart === null) {
+                  return;
+                }
+
+                const delta = event.clientX - touchStart;
+                setTouchStart(null);
+
+                if (Math.abs(delta) > 42) {
+                  goTo(delta < 0 ? 1 : -1);
+                }
+              }}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-surface">
+                <Image
+                  src="/images/dj-julz-hero.png"
+                  alt={activeMoment.title}
+                  fill
+                  sizes="100vw"
+                  className={`object-cover ${activeMoment.position}`}
+                  placeholder="blur"
+                  blurDataURL={warmBlurDataUrl}
+                />
+              </div>
+              <div className="mt-4 flex items-center justify-between gap-3 text-white">
+                <Button
+                  type="button"
+                  size="icon"
+                  variant="secondary"
+                  aria-label="Previous image"
+                  onClick={() => goTo(-1)}
+                >
+                  <ChevronLeft className="size-5" />
+                </Button>
+                <div className="text-center">
+                  <p className="text-sm font-semibold">{activeMoment.title}</p>
+                  <p className="text-xs text-white/70">
+                    {(selected ?? 0) + 1} of {moments.length}
+                  </p>
+                </div>
+                <Button
+                  type="button"
+                  size="icon"
+                  variant="secondary"
+                  aria-label="Next image"
+                  onClick={() => goTo(1)}
+                >
+                  <ChevronRight className="size-5" />
+                </Button>
+              </div>
+              <Button
+                type="button"
+                size="icon"
+                variant="secondary"
+                aria-label="Close gallery"
+                className="absolute right-3 top-3"
+                onClick={closeLightbox}
+              >
+                <X className="size-5" />
+              </Button>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import { ArrowRight, Building2, Heart, Mic2, PartyPopper } from "lucide-react";
 import Link from "next/link";
 
+import { MotionCard, Reveal } from "@/components/shared/motion";
 import { Button } from "@/components/ui/button";
 
 const packages = [
@@ -30,11 +31,13 @@ export function Packages() {
   return (
     <section id="packages" className="section-spacing bg-surface px-5">
       <div className="mx-auto max-w-md">
-        <p className="eyebrow">Packages</p>
-        <h2 className="section-title mt-3">Choose the right starting point.</h2>
+        <Reveal>
+          <p className="eyebrow">Packages</p>
+          <h2 className="section-title mt-3">Choose the right starting point.</h2>
+        </Reveal>
         <div className="mt-8 grid gap-4">
-          {packages.map((item) => (
-            <article key={item.title} className="premium-card p-5">
+          {packages.map((item, index) => (
+            <MotionCard key={item.title} className="p-5" delay={index * 0.05}>
               <div className="flex items-start gap-4">
                 <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent text-accent-foreground">
                   <item.icon className="size-5" />
@@ -49,7 +52,7 @@ export function Packages() {
                   Start enquiry <ArrowRight className="size-4" />
                 </Link>
               </Button>
-            </article>
+            </MotionCard>
           ))}
         </div>
       </div>

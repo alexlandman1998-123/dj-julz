@@ -1,6 +1,8 @@
 import { Camera, Music2 } from "lucide-react";
 import Link from "next/link";
 
+import { Reveal } from "@/components/shared/motion";
+
 const links = [
   { label: "About", href: "#about" },
   { label: "Packages", href: "#packages" },
@@ -11,7 +13,7 @@ const links = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-white px-5 py-10">
-      <div className="mx-auto max-w-md">
+      <Reveal className="mx-auto max-w-md">
         <p className="font-heading text-4xl leading-none text-foreground">DJ Julz</p>
         <p className="caption mt-3">
           Wedding and event music direction with a calm planning process.
@@ -50,7 +52,7 @@ export function Footer() {
         <p className="mt-6 text-xs text-muted-foreground">
           {new Date().getFullYear()} DJ Julz. All rights reserved.
         </p>
-      </div>
+      </Reveal>
     </footer>
   );
 }

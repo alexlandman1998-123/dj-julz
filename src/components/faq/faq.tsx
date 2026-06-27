@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/shared/motion";
 import {
   Accordion,
   AccordionContent,
@@ -32,8 +33,10 @@ export function FAQ() {
   return (
     <section id="faq" className="section-spacing px-5">
       <div className="mx-auto max-w-md">
-        <p className="eyebrow">FAQ</p>
-        <h2 className="section-title mt-3">Common questions.</h2>
+        <Reveal>
+          <p className="eyebrow">FAQ</p>
+          <h2 className="section-title mt-3">Common questions.</h2>
+        </Reveal>
         <Accordion type="single" collapsible className="mt-8 grid gap-3">
           {faqs.map((item) => (
             <AccordionItem

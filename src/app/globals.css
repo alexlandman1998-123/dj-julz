@@ -95,6 +95,7 @@
   --shadow-soft: 0 24px 80px rgb(24 24 27 / 0.09);
   --duration-fast: 160ms;
   --duration-base: 240ms;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
@@ -142,6 +143,7 @@
   }
   html {
     @apply scroll-smooth font-sans;
+    scroll-padding-top: 5rem;
   }
 }
 
@@ -188,7 +190,32 @@
     box-shadow: var(--shadow-card);
   }
 
+  .interactive-card {
+    @apply rounded-[1.75rem] border border-border bg-card transition-[border-color,box-shadow,transform] duration-[var(--duration-base)] ease-[var(--ease-premium)];
+    box-shadow: var(--shadow-card);
+  }
+
+  .interactive-card:hover {
+    @apply border-sage/35;
+    box-shadow: var(--shadow-soft);
+  }
+
   .soft-shadow {
     box-shadow: var(--shadow-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
