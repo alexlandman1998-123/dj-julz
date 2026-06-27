@@ -120,6 +120,7 @@ export function Hero() {
               fill
               priority
               fetchPriority="high"
+              unoptimized
               sizes="(max-width: 640px) 90vw, 420px"
               className="object-cover object-[62%_center]"
               placeholder="blur"
