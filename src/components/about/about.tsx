@@ -17,7 +17,7 @@ export function About() {
         <MotionCard className="overflow-hidden bg-surface">
           <div className="relative aspect-[5/4]">
             <Image
-              src="/images/dj-julz-hero.png"
+              src="/images/dj-julz-hero-optimized.jpg"
               alt="Refined event atmosphere with DJ equipment"
               fill
               sizes="(max-width: 640px) 90vw, 420px"

@@ -92,7 +92,7 @@ export function Gallery() {
               }`}
             >
               <Image
-                src="/images/dj-julz-hero.png"
+                src="/images/dj-julz-hero-optimized.jpg"
                 alt=""
                 fill
                 sizes="(max-width: 640px) 45vw, 190px"
@@ -146,7 +146,7 @@ export function Gallery() {
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-surface">
                 <Image
-                  src="/images/dj-julz-hero.png"
+                  src="/images/dj-julz-hero-optimized.jpg"
                   alt={activeMoment.title}
                   fill
                   sizes="100vw"

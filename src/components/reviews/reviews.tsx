@@ -85,7 +85,8 @@ export function Reviews() {
               transition={{ duration: 0.42, delay: index * 0.04 }}
             >
               <Quote className="size-7 text-sage" />
-              <div className="mt-5 flex gap-1 text-sage" aria-label="Five star rating">
+              <div className="mt-5 flex gap-1 text-sage">
+                <span className="sr-only">Five star rating</span>
                 {Array.from({ length: 5 }, (_, starIndex) => (
                   <Star key={starIndex} className="size-4 fill-current" />
                 ))}
@@ -107,11 +108,15 @@ export function Reviews() {
               type="button"
               aria-label={`Go to review ${index + 1}`}
               onClick={() => scrollTo(index)}
-              className={cn(
-                "h-2 rounded-full transition-all duration-200",
-                selectedIndex === index ? "w-6 bg-sage" : "w-2 bg-border",
-              )}
-            />
+              className="grid size-11 place-items-center rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/35"
+            >
+              <span
+                className={cn(
+                  "h-2 rounded-full transition-all duration-200",
+                  selectedIndex === index ? "w-6 bg-sage" : "w-2 bg-border",
+                )}
+              />
+            </button>
           ))}
         </div>
         <div className="flex gap-2">

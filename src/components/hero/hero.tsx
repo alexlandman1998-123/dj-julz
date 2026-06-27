@@ -117,7 +117,7 @@ export function Hero() {
         >
           <div className="relative aspect-[4/5]">
             <Image
-              src="/images/dj-julz-hero.png"
+              src="/images/dj-julz-hero-optimized.jpg"
               alt="Elegant private event DJ setup with warm lighting"
               fill
               priority
