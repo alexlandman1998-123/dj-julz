@@ -1,53 +1,55 @@
+import { ArrowRight, Building2, Heart, Mic2, PartyPopper } from "lucide-react";
 import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
 
 const packages = [
   {
     title: "Wedding DJ",
-    description: "Ceremony, reception, and dance floor support.",
+    description: "Ceremony support, reception pacing and a refined dance-floor arc.",
+    icon: Heart,
   },
   {
     title: "Corporate Events",
-    description: "Professional sound and music for brand moments.",
+    description: "A polished music layer for launches, dinners and brand moments.",
+    icon: Building2,
   },
   {
     title: "Private Parties",
-    description: "Birthdays, home events, and milestone celebrations.",
+    description: "Warm, personal sets for birthdays and milestone celebrations.",
+    icon: PartyPopper,
   },
   {
     title: "MC Services",
-    description: "Simple event hosting and announcement support.",
+    description: "Calm announcements and light hosting for key event transitions.",
+    icon: Mic2,
   },
 ];
 
 export function Packages() {
   return (
-    <section id="packages" className="px-5 py-12">
+    <section id="packages" className="section-spacing bg-surface px-5">
       <div className="mx-auto max-w-md">
-        <p className="text-sm font-medium uppercase tracking-wide text-neutral-500">
-          Packages
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold text-neutral-900">
-          Choose a starting point.
-        </h2>
-        <div className="mt-6 grid gap-3">
+        <p className="eyebrow">Packages</p>
+        <h2 className="section-title mt-3">Choose the right starting point.</h2>
+        <div className="mt-8 grid gap-4">
           {packages.map((item) => (
-            <details
-              key={item.title}
-              className="rounded-3xl border border-neutral-200 p-5"
-            >
-              <summary className="cursor-pointer list-none text-lg font-semibold text-neutral-900">
-                {item.title}
-              </summary>
-              <p className="mt-3 text-sm leading-6 text-neutral-600">
-                {item.description}
-              </p>
-              <Link
-                href="#planner"
-                className="mt-5 inline-block rounded-full border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-900"
-              >
-                Start enquiry
-              </Link>
-            </details>
+            <article key={item.title} className="premium-card p-5">
+              <div className="flex items-start gap-4">
+                <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent text-accent-foreground">
+                  <item.icon className="size-5" />
+                </div>
+                <div>
+                  <h3 className="card-title">{item.title}</h3>
+                  <p className="caption mt-2">{item.description}</p>
+                </div>
+              </div>
+              <Button asChild variant="ghost" className="mt-5 px-0 text-sage">
+                <Link href="#planner">
+                  Start enquiry <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+            </article>
           ))}
         </div>
       </div>

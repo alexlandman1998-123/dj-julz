@@ -23,7 +23,7 @@ export default function Home() {
         }}
       />
       <Navigation />
-      <main className="bg-white text-neutral-900">
+      <main className="bg-background text-foreground">
         <Hero />
         <Stats />
         <About />

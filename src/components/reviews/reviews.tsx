@@ -1,42 +1,50 @@
+import { Quote, Star } from "lucide-react";
+
 const reviews = [
   {
-    quote: "Placeholder review about the dance floor and planning experience.",
-    name: "Client Name",
+    quote:
+      "The whole night felt beautifully paced. Julz read the room perfectly and kept every moment calm before the dance floor opened.",
+    name: "Megan R.",
     event: "Wedding",
   },
   {
-    quote: "Placeholder review about professionalism and great music flow.",
-    name: "Client Name",
+    quote:
+      "Professional, warm and completely prepared. The music supported the brand event without ever overpowering the room.",
+    name: "Daniel K.",
     event: "Corporate Event",
   },
   {
-    quote: "Placeholder review about making the event feel memorable.",
-    name: "Client Name",
+    quote:
+      "Our guests still talk about the final hour. It felt personal, polished and incredibly easy from the first call.",
+    name: "Aisha M.",
     event: "Private Party",
   },
 ];
 
 export function Reviews() {
   return (
-    <section id="reviews" className="px-5 py-12">
+    <section id="reviews" className="section-spacing px-5">
       <div className="mx-auto max-w-md">
-        <p className="text-sm font-medium uppercase tracking-wide text-neutral-500">
-          Reviews
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold text-neutral-900">
-          What clients say.
-        </h2>
+        <p className="eyebrow">Reviews</p>
+        <h2 className="section-title mt-3">Trusted when the room matters.</h2>
       </div>
-      <div className="mx-auto mt-6 flex max-w-md gap-3 overflow-x-auto pb-2">
+      <div className="mx-auto mt-8 flex max-w-md gap-4 overflow-x-auto pb-3">
         {reviews.map((review) => (
           <article
             key={`${review.name}-${review.event}`}
-            className="min-w-72 rounded-3xl border border-neutral-200 p-5"
+            className="premium-card min-w-[19rem] p-6"
           >
-            <p className="text-sm text-neutral-900">★★★★★</p>
-            <p className="mt-4 text-sm leading-6 text-neutral-600">“{review.quote}”</p>
-            <p className="mt-5 font-semibold text-neutral-900">{review.name}</p>
-            <p className="text-sm text-neutral-500">{review.event}</p>
+            <Quote className="size-7 text-sage" />
+            <div className="mt-5 flex gap-1 text-sage" aria-label="Five star rating">
+              {Array.from({ length: 5 }, (_, index) => (
+                <Star key={index} className="size-4 fill-current" />
+              ))}
+            </div>
+            <p className="mt-5 text-base leading-7 text-foreground">{review.quote}</p>
+            <div className="mt-6 border-t border-border pt-4">
+              <p className="font-semibold text-foreground">{review.name}</p>
+              <p className="caption">{review.event}</p>
+            </div>
           </article>
         ))}
       </div>

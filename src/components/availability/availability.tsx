@@ -1,27 +1,31 @@
 const months = [
-  { month: "September", status: "Available" },
-  { month: "October", status: "Limited" },
-  { month: "November", status: "Booking Fast" },
+  { month: "September", status: "Available", tone: "bg-accent text-accent-foreground" },
+  { month: "October", status: "Limited", tone: "bg-surface-strong text-foreground" },
+  {
+    month: "November",
+    status: "Booking Fast",
+    tone: "bg-primary text-primary-foreground",
+  },
 ];
 
 export function Availability() {
   return (
-    <section id="availability" className="px-5 py-12">
+    <section id="availability" className="section-spacing bg-surface px-5">
       <div className="mx-auto max-w-md">
-        <p className="text-sm font-medium uppercase tracking-wide text-neutral-500">
-          Availability
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold text-neutral-900">
-          Upcoming booking status.
-        </h2>
-        <div className="mt-6 grid gap-3">
+        <p className="eyebrow">Availability</p>
+        <h2 className="section-title mt-3">Upcoming booking status.</h2>
+        <div className="mt-8 grid gap-3">
           {months.map((item) => (
             <div
               key={item.month}
-              className="flex items-center justify-between rounded-3xl bg-neutral-100 p-5"
+              className="premium-card flex items-center justify-between gap-4 p-5"
             >
-              <p className="font-semibold text-neutral-900">{item.month}</p>
-              <p className="text-sm text-neutral-600">{item.status}</p>
+              <p className="card-title">{item.month}</p>
+              <p
+                className={`rounded-full px-3 py-1.5 text-xs font-semibold ${item.tone}`}
+              >
+                {item.status}
+              </p>
             </div>
           ))}
         </div>
