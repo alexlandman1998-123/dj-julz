@@ -1,7 +1,7 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 
@@ -12,21 +12,21 @@ import { cn } from "@/lib/utils";
 const reviews = [
   {
     quote:
-      "Julz made the whole day feel easy. The ceremony, dinner and dance floor all had their own mood, and nothing ever felt rushed.",
-    name: "Megan R.",
-    event: "Pretoria Wedding",
+      "A clear planning call, thoughtful music direction and calm coordination before the event begins.",
+    name: "Wedding clients",
+    event: "Pretoria and Gauteng",
   },
   {
     quote:
-      "Professional, warm and completely prepared. The music supported our year-end event without overpowering the room.",
-    name: "Daniel K.",
-    event: "Corporate Function",
+      "Background music that supports the room, formalities that stay on schedule and a confident shift into celebration.",
+    name: "Corporate teams",
+    event: "Launches and functions",
   },
   {
     quote:
-      "Our guests still talk about the final hour. It felt personal, polished and incredibly easy from the first call to the last song.",
-    name: "Aisha M.",
-    event: "Milestone Birthday",
+      "A personal music brief that balances host favourites, guest energy and the flow of the night.",
+    name: "Private hosts",
+    event: "Milestone celebrations",
   },
 ];
 
@@ -70,8 +70,8 @@ export function Reviews() {
   return (
     <section id="reviews" className="section-spacing px-5">
       <Reveal className="mx-auto max-w-md">
-        <p className="eyebrow">Reviews</p>
-        <h2 className="section-title mt-3">Trusted when the room matters.</h2>
+        <p className="eyebrow">Client priorities</p>
+        <h2 className="section-title mt-3">Built around what hosts care about.</h2>
       </Reveal>
       <div className="mx-auto mt-8 max-w-md overflow-hidden" ref={emblaRef}>
         <div className="flex gap-4">
@@ -85,12 +85,6 @@ export function Reviews() {
               transition={{ duration: 0.42, delay: index * 0.04 }}
             >
               <Quote className="size-7 text-sage" />
-              <div className="mt-5 flex gap-1 text-sage">
-                <span className="sr-only">Five star rating</span>
-                {Array.from({ length: 5 }, (_, starIndex) => (
-                  <Star key={starIndex} className="size-4 fill-current" />
-                ))}
-              </div>
               <p className="mt-5 text-base leading-7 text-foreground">{review.quote}</p>
               <div className="mt-6 border-t border-border pt-4">
                 <p className="font-semibold text-foreground">{review.name}</p>
