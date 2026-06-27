@@ -109,11 +109,9 @@ export function Hero() {
         </motion.div>
         <motion.div
           className="premium-card mt-8 overflow-hidden bg-surface"
-          variants={{
-            hidden: { opacity: 0, y: 20, scale: 0.98 },
-            visible: { opacity: 1, y: 0, scale: 1 },
-          }}
-          transition={{ duration: 0.7, ease: easing }}
+          initial={false}
+          animate={reduceMotion ? undefined : { y: [4, 0] }}
+          transition={{ duration: 0.45, ease: easing }}
         >
           <div className="relative aspect-[4/5]">
             <Image
@@ -121,6 +119,7 @@ export function Hero() {
               alt="Elegant private event DJ setup with warm lighting"
               fill
               priority
+              fetchPriority="high"
               sizes="(max-width: 640px) 90vw, 420px"
               className="object-cover object-[62%_center]"
               placeholder="blur"
