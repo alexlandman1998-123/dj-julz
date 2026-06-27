@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BriefcaseBusiness,
+  Cake,
+  CheckCircle2,
+  Heart,
+  MoreHorizontal,
+} from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -9,7 +17,12 @@ import { Reveal } from "@/components/shared/motion";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 
-const celebrationOptions = ["Wedding", "Corporate", "Birthday", "Other"];
+const celebrationOptions = [
+  { label: "Wedding", icon: Heart },
+  { label: "Birthday", icon: Cake },
+  { label: "Corporate", icon: BriefcaseBusiness },
+  { label: "Other", icon: MoreHorizontal },
+];
 const answerKeys = [
   "celebration",
   "venue",
@@ -135,13 +148,34 @@ export function Planner() {
               </p>
               <p className="caption">{Math.round(complete ? 100 : progress)}%</p>
             </div>
-            <div className="mt-4 h-2 overflow-hidden rounded-full bg-surface-strong">
-              <motion.div
-                className="h-full rounded-full bg-sage transition-[width] duration-[var(--duration-base)]"
-                initial={false}
-                animate={{ width: `${complete ? 100 : progress}%` }}
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              />
+            <div className="mt-5 flex items-center justify-between">
+              {steps.map((item, index) => {
+                const activeStep = complete || index <= step;
+
+                return (
+                  <div
+                    key={item.key}
+                    className="flex flex-1 items-center last:flex-none"
+                  >
+                    <span
+                      className={`grid size-8 shrink-0 place-items-center rounded-full border text-xs font-semibold transition-colors ${
+                        activeStep
+                          ? "border-sage bg-sage text-white"
+                          : "border-border bg-white text-muted-foreground"
+                      }`}
+                    >
+                      {index + 1}
+                    </span>
+                    {index < steps.length - 1 ? (
+                      <span
+                        className={`mx-1 h-px flex-1 ${
+                          index < step || complete ? "bg-sage/60" : "bg-border"
+                        }`}
+                      />
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -163,21 +197,22 @@ export function Planner() {
                   {currentStep.key === "celebration" ? (
                     <div className="mt-6 grid grid-cols-2 gap-3">
                       {celebrationOptions.map((option) => {
-                        const selected = answers.celebration === option;
+                        const selected = answers.celebration === option.label;
 
                         return (
                           <motion.button
-                            key={option}
+                            key={option.label}
                             type="button"
                             whileTap={reduceMotion ? undefined : { scale: 0.97 }}
-                            onClick={() => updateAnswer("celebration", option)}
-                            className={`min-h-16 rounded-3xl border px-4 text-left text-sm font-semibold outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/35 ${
+                            onClick={() => updateAnswer("celebration", option.label)}
+                            className={`flex min-h-16 items-center gap-3 rounded-2xl border px-4 text-left text-sm font-semibold outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/35 ${
                               selected
                                 ? "border-sage bg-accent text-accent-foreground"
                                 : "border-border bg-white text-foreground"
                             }`}
                           >
-                            {option}
+                            <option.icon className="size-5 text-sage" />
+                            {option.label}
                           </motion.button>
                         );
                       })}
@@ -191,7 +226,7 @@ export function Planner() {
                       <span className="sr-only">{currentStep.title}</span>
                       {currentStep.multiline ? (
                         <textarea
-                          className={`min-h-32 w-full rounded-3xl border bg-white px-4 py-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-sage focus:ring-3 focus:ring-ring/25 ${
+                          className={`min-h-32 w-full rounded-2xl border bg-white px-4 py-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-sage focus:ring-3 focus:ring-ring/25 ${
                             error ? "border-destructive" : "border-border"
                           }`}
                           placeholder={currentStep.example}
@@ -202,7 +237,7 @@ export function Planner() {
                         />
                       ) : (
                         <input
-                          className={`min-h-14 w-full rounded-3xl border bg-white px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-sage focus:ring-3 focus:ring-ring/25 ${
+                          className={`min-h-14 w-full rounded-2xl border bg-white px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-sage focus:ring-3 focus:ring-ring/25 ${
                             error ? "border-destructive" : "border-border"
                           }`}
                           inputMode={
@@ -283,7 +318,7 @@ export function Planner() {
                     {answerKeys.map((key, index) => (
                       <motion.div
                         key={key}
-                        className="rounded-3xl bg-surface p-4"
+                        className="rounded-2xl bg-surface p-4"
                         initial={reduceMotion ? false : { opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.035, duration: 0.22 }}

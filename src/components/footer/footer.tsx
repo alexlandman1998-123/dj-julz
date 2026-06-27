@@ -1,6 +1,7 @@
 import { Camera, Mail, MapPin, Music2, Phone } from "lucide-react";
 import Link from "next/link";
 
+import { Logo } from "@/components/shared/logo";
 import { Reveal } from "@/components/shared/motion";
 import { siteConfig } from "@/config/site";
 
@@ -32,7 +33,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-white px-5 py-10">
       <Reveal className="mx-auto max-w-md">
-        <p className="font-heading text-4xl leading-none text-foreground">DJ Julz</p>
+        <Logo className="w-28" />
         <p className="caption mt-3">
           Premium wedding entertainment, corporate event music and private celebration
           DJ services from Pretoria to greater Gauteng.

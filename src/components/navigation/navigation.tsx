@@ -1,10 +1,11 @@
 "use client";
 
-import { CalendarCheck, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -65,21 +66,15 @@ export function Navigation() {
           : "border-transparent bg-transparent",
       )}
     >
-      <div className="mobile-container flex h-16 items-center justify-between">
+      <div className="flex h-16 w-full items-center justify-between px-6">
         <Link
           href="/"
-          className="font-heading text-3xl leading-none text-foreground"
           aria-label="DJ Julz home"
+          className="rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/35"
         >
-          DJ Julz
+          <Logo priority className="w-24" />
         </Link>
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="h-10 px-4">
-            <Link href="#planner">
-              <CalendarCheck className="size-4" />
-              Check Date
-            </Link>
-          </Button>
           <Button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -113,6 +108,11 @@ export function Navigation() {
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="mx-auto grid max-w-md gap-2">
+              <Button asChild size="lg" className="mb-2 w-full">
+                <Link href="#planner" onClick={() => setOpen(false)}>
+                  Check My Date
+                </Link>
+              </Button>
               {links.map((link, index) => {
                 const activeLink = active === link.href.slice(1);
 

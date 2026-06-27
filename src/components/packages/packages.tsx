@@ -11,10 +11,12 @@ import {
   Sparkles,
   Volume2,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { MotionCard, Reveal } from "@/components/shared/motion";
 import { Button } from "@/components/ui/button";
+import { warmBlurDataUrl } from "@/lib/image-placeholders";
 
 const packages = [
   {
@@ -29,6 +31,7 @@ const packages = [
       "Full setup and breakdown",
     ],
     icon: Heart,
+    imagePosition: "object-[48%_center]",
   },
   {
     title: "Premium Wedding Experience",
@@ -42,6 +45,7 @@ const packages = [
       "Atmosphere-led reception and party flow",
     ],
     icon: Sparkles,
+    imagePosition: "object-[62%_center]",
   },
   {
     title: "Corporate Event Experience",
@@ -56,6 +60,7 @@ const packages = [
       "Full setup and breakdown",
     ],
     icon: Building2,
+    imagePosition: "object-[72%_center]",
   },
   {
     title: "Birthday & Private Celebration Experience",
@@ -70,6 +75,7 @@ const packages = [
       "Full setup and breakdown",
     ],
     icon: PartyPopper,
+    imagePosition: "object-[38%_center]",
   },
 ];
 
@@ -151,16 +157,33 @@ export function Packages() {
             starting points below make it easier to choose the right conversation.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-4">
+        <div className="mt-8 grid gap-5">
           {packages.map((item, index) => (
-            <MotionCard key={item.title} className="p-5" delay={index * 0.05}>
-              <div className="flex items-start gap-4">
-                <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent text-accent-foreground">
-                  <item.icon className="size-5" />
+            <MotionCard
+              key={item.title}
+              className="overflow-hidden p-4"
+              delay={index * 0.05}
+            >
+              <div className="grid grid-cols-[6rem_1fr] gap-4">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface">
+                  <Image
+                    src="/images/dj-julz-hero-optimized.jpg"
+                    alt=""
+                    fill
+                    sizes="96px"
+                    className={`object-cover ${item.imagePosition}`}
+                    placeholder="blur"
+                    blurDataURL={warmBlurDataUrl}
+                  />
+                  <div className="absolute -right-3 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full border border-border bg-white text-foreground shadow-sm">
+                    <item.icon className="size-5" />
+                  </div>
                 </div>
-                <div>
+                <div className="min-w-0 py-1">
                   <h3 className="card-title">{item.title}</h3>
-                  <p className="mt-1 text-sm font-semibold text-sage">{item.price}</p>
+                  <p className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-sage">
+                    {item.price}
+                  </p>
                   <p className="caption mt-2">{item.description}</p>
                   <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground">
                     {item.includes.map((detail) => (

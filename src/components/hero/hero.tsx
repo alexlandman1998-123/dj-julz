@@ -14,7 +14,7 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="hero" className="relative overflow-hidden px-5 pb-14 pt-24">
+    <section id="hero" className="relative overflow-hidden px-6 pb-14 pt-24">
       <motion.div
         aria-hidden="true"
         className="absolute right-[-5rem] top-28 h-28 w-48 rounded-[2rem] border border-sage/20 bg-surface/60"
@@ -77,19 +77,19 @@ export function Hero() {
           }}
           transition={{ duration: 0.55, ease: easing }}
         >
-          The calm, confident sound behind unforgettable events.
+          Music for moments <span className="block text-sage italic">that matter.</span>
         </motion.h1>
         <motion.p
-          className="body-copy mt-6"
+          className="body-copy mt-6 max-w-[20rem]"
           variants={{
             hidden: { opacity: 0, y: 14 },
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.5, ease: easing }}
         >
-          DJ Julz provides premium wedding, corporate and private event DJ services in
-          Pretoria and across Gauteng, with thoughtful planning, polished coordination
-          and music that feels right for the room.
+          Premium wedding, corporate and private event DJ services in Pretoria and
+          across Gauteng, planned with calm detail from the first song to the last
+          dance.
         </motion.p>
         <motion.div
           className="mt-8 grid gap-3"
@@ -99,28 +99,44 @@ export function Hero() {
           }}
           transition={{ duration: 0.45, ease: easing }}
         >
-          <Button asChild size="lg" variant="sage">
+          <Button
+            asChild
+            size="lg"
+            variant="primary"
+            className="w-full bg-primary text-primary-foreground"
+          >
             <Link href="#planner" data-analytics="book_consultation_hero">
               Check My Date <ArrowRight className="size-4" />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline">
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="w-full bg-white text-foreground"
+          >
             <Link href="#packages">Explore Experiences</Link>
           </Button>
         </motion.div>
-        <motion.p
-          className="caption mt-5 rounded-full bg-white/85 px-4 py-3 text-center"
+        <motion.div
+          aria-hidden="true"
+          className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center gap-4"
           variants={{
             hidden: { opacity: 0, y: 8 },
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.42, ease: easing }}
         >
-          Professional planning for ceremonies, receptions, launches and private
-          celebrations.
-        </motion.p>
+          <span className="hairline" />
+          <div className="waveform">
+            {[8, 14, 22, 12, 28, 40, 22, 34, 18, 26, 12, 8].map((height, index) => (
+              <span key={index} style={{ height }} />
+            ))}
+          </div>
+          <span className="hairline" />
+        </motion.div>
         <motion.div
-          className="premium-card mt-8 overflow-hidden bg-surface"
+          className="premium-card mt-8 overflow-hidden rounded-b-none bg-surface"
           initial={false}
           animate={reduceMotion ? undefined : { y: [4, 0] }}
           transition={{ duration: 0.45, ease: easing }}

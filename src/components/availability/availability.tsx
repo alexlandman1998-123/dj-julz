@@ -1,21 +1,35 @@
 import { MotionCard, Reveal } from "@/components/shared/motion";
+import { cn } from "@/lib/utils";
 
-const availability = [
-  {
-    month: "Wedding season",
-    status: "Check early",
-    tone: "bg-accent text-accent-foreground",
-  },
-  {
-    month: "Corporate events",
-    status: "Plan the brief",
-    tone: "bg-surface-strong text-foreground",
-  },
-  {
-    month: "Private celebrations",
-    status: "Flexible dates",
-    tone: "bg-primary text-primary-foreground",
-  },
+const days = [
+  { day: "M", date: "2" },
+  { day: "T", date: "3" },
+  { day: "W", date: "4" },
+  { day: "T", date: "5" },
+  { day: "F", date: "6" },
+  { day: "S", date: "7", status: "available" },
+  { day: "S", date: "8" },
+  { day: "M", date: "9" },
+  { day: "T", date: "10" },
+  { day: "W", date: "11" },
+  { day: "T", date: "12" },
+  { day: "F", date: "13" },
+  { day: "S", date: "14", status: "limited" },
+  { day: "S", date: "15" },
+  { day: "M", date: "16" },
+  { day: "T", date: "17" },
+  { day: "W", date: "18" },
+  { day: "T", date: "19" },
+  { day: "F", date: "20" },
+  { day: "S", date: "21", status: "available" },
+  { day: "S", date: "22" },
+  { day: "M", date: "23" },
+  { day: "T", date: "24" },
+  { day: "W", date: "25" },
+  { day: "T", date: "26" },
+  { day: "F", date: "27" },
+  { day: "S", date: "28", status: "booked" },
+  { day: "S", date: "29" },
 ];
 
 export function Availability() {
@@ -33,23 +47,46 @@ export function Availability() {
             need.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-3">
-          {availability.map((item, index) => (
-            <MotionCard
-              key={item.month}
-              className="flex items-center justify-between gap-4 p-5"
-              delay={index * 0.05}
-            >
-              <p className="card-title">{item.month}</p>
-              <p
-                className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${item.tone}`}
-              >
-                <span className="size-1.5 rounded-full bg-current opacity-70" />
-                {item.status}
+        <MotionCard className="mt-8 p-5">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-foreground">
+              Availability preview
+            </p>
+            <p className="caption">Next dates</p>
+          </div>
+          <div className="mt-5 grid grid-cols-7 gap-2 text-center text-xs">
+            {days.slice(0, 7).map((item) => (
+              <p key={item.day + item.date} className="font-semibold text-foreground">
+                {item.day}
               </p>
-            </MotionCard>
-          ))}
-        </div>
+            ))}
+            {days.map((item) => (
+              <span
+                key={item.date}
+                className={cn(
+                  "grid aspect-square place-items-center rounded-full text-sm text-foreground",
+                  item.status === "available" && "bg-sage text-white",
+                  item.status === "limited" && "bg-[#ecd39b] text-foreground",
+                  item.status === "booked" && "bg-[#e8b2ae] text-foreground",
+                )}
+              >
+                {item.date}
+              </span>
+            ))}
+          </div>
+          <div className="mt-5 flex flex-wrap gap-4 text-xs text-muted-foreground">
+            {[
+              ["bg-sage", "Available"],
+              ["bg-[#ecd39b]", "Limited"],
+              ["bg-[#e8b2ae]", "Booked"],
+            ].map(([tone, label]) => (
+              <span key={label} className="inline-flex items-center gap-2">
+                <span className={`size-2.5 rounded-full ${tone}`} />
+                {label}
+              </span>
+            ))}
+          </div>
+        </MotionCard>
       </div>
     </section>
   );
