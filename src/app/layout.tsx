@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 
 import { Analytics } from "@/components/shared/analytics";
 import { Providers } from "@/components/shared/providers";
@@ -9,12 +9,6 @@ import { siteConfig } from "@/config/site";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -83,10 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
       <body>
         <Providers>
           {children}
