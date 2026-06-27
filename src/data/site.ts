@@ -16,33 +16,33 @@ export const navItems = [
 ] as const;
 
 export const stats = [
-  { value: "250+", label: "events shaped" },
-  { value: "4.9", label: "client rating" },
-  { value: "10 yrs", label: "behind the decks" },
+  { value: "350+", label: "events shaped" },
+  { value: "200+", label: "weddings supported" },
+  { value: "12 yrs", label: "event experience" },
 ] as const;
 
 export const packages = [
   {
-    title: "Private Sessions",
-    price: "From R4,500",
+    title: "Wedding DJ",
+    price: "Custom quote",
     description:
-      "Polished sound for birthdays, rooftops, dinners, and intimate celebrations.",
-    features: ["3 hour performance", "Curated arrival playlist", "Compact setup"],
+      "Music planning for ceremonies, canapes, dinner, formalities and the dance floor.",
+    features: ["Timeline planning", "Must-play guidance", "Reception flow"],
   },
   {
-    title: "Signature Events",
-    price: "From R8,500",
+    title: "Corporate Events",
+    price: "Custom quote",
     description:
-      "The best fit for weddings, launches, and full-room dance-floor energy.",
-    features: ["5 hour performance", "Mic support", "Planner consultation"],
+      "A polished soundtrack for awards evenings, launches, year-end functions and brand events.",
+    features: ["Brief alignment", "Background music", "Announcements support"],
     featured: true,
   },
   {
-    title: "Full Production",
+    title: "Private Celebrations",
     price: "Custom",
     description:
-      "A complete music direction package for larger venues and premium brands.",
-    features: ["Extended set", "Supplier coordination", "Custom sound design"],
+      "Personal, guest-aware music for birthdays, anniversaries and milestone celebrations.",
+    features: ["Crowd reading", "Playlist direction", "Flexible party flow"],
   },
 ] as const;
 
@@ -54,14 +54,13 @@ export const experiencePoints: Array<{
   {
     icon: Headphones,
     title: "Music-first planning",
-    description:
-      "The set is shaped around the room, the brief, and the moments that matter.",
+    description: "The set is shaped around the room, the brief and the event timeline.",
   },
   {
     icon: UsersRound,
     title: "Crowd-aware flow",
     description:
-      "Smooth transitions from arrival energy to peak dance-floor without hard edges.",
+      "Smooth transitions from arrival music to formalities and a confident dance floor.",
   },
   {
     icon: Mic2,
@@ -72,7 +71,7 @@ export const experiencePoints: Array<{
     icon: Sparkles,
     title: "Premium restraint",
     description:
-      "A refined atmosphere for clients who want style without noise for noise's sake.",
+      "A refined atmosphere for clients who want professionalism, warmth and clarity.",
   },
 ];
 
@@ -106,7 +105,7 @@ export const plannerSteps = [
   {
     icon: Music2,
     title: "Shape the brief",
-    description: "Define the room, the non-negotiables, and the musical lane.",
+    description: "Define the room, the key songs and the music direction.",
   },
   {
     icon: Sparkles,
@@ -119,7 +118,7 @@ export const faqs = [
   {
     question: "How far in advance should I book?",
     answer:
-      "Four to eight weeks is ideal for private events, while weddings and brand events are best booked as early as possible.",
+      "Three to six months is ideal for weddings and peak-season Gauteng dates. Shorter-notice enquiries are welcome when availability allows.",
   },
   {
     question: "Can the set include specific songs?",
@@ -129,11 +128,11 @@ export const faqs = [
   {
     question: "Is sound equipment included?",
     answer:
-      "Core packages include a clean, compact DJ setup. Larger rooms can be quoted with additional production support.",
+      "Sound and setup requirements are discussed during the consultation so the quote can match the venue, guest count and ceremony or reception needs.",
   },
   {
     question: "Do you travel?",
     answer:
-      "Yes. Travel can be included in a custom quote once the venue and event window are confirmed.",
+      "DJ Julz is based in Pretoria and serves Johannesburg, Centurion, Midrand and surrounding Gauteng areas. Travel outside Gauteng can be discussed.",
   },
 ] as const;

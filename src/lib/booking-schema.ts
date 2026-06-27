@@ -5,7 +5,7 @@ export const bookingSchema = z.object({
   email: z.string().email("Use a valid email address."),
   phone: z.string().optional(),
   eventDate: z.date().optional(),
-  packageType: z.enum(["private", "signature", "production"]),
+  packageType: z.enum(["wedding", "corporate", "private", "mc"]),
   guestCount: z.string().optional(),
   message: z.string().min(12, "Share a little more about the event."),
 });

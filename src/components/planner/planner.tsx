@@ -2,10 +2,12 @@
 
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import { Reveal } from "@/components/shared/motion";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 const celebrationOptions = ["Wedding", "Corporate", "Birthday", "Other"];
 const answerKeys = [
@@ -22,11 +24,12 @@ const steps: Array<{
   helper: string;
   key: (typeof answerKeys)[number];
   inputType?: string;
-  placeholder?: string;
+  example?: string;
 }> = [
   {
     title: "What are we celebrating?",
-    helper: "Choose the event type so the enquiry starts in the right place.",
+    helper:
+      "Choose the event type so the first conversation starts in the right place.",
     key: "celebration",
   },
   {
@@ -34,19 +37,19 @@ const steps: Array<{
     helper: "An estimate is perfect for now.",
     key: "guestCount",
     inputType: "number",
-    placeholder: "120 guests",
+    example: "120",
   },
   {
     title: "Venue",
     helper: "Share the venue name, city, or what you know so far.",
     key: "venue",
-    placeholder: "Bespoke venue, Cape Town",
+    example: "Pretoria country venue",
   },
   {
     title: "Music style",
     helper: "A few words about the mood, crowd, or must-play direction.",
     key: "musicStyle",
-    placeholder: "Soulful dinner, classics, then upbeat dance floor",
+    example: "Warm dinner music, old-school favourites, upbeat dance floor",
   },
   {
     title: "Preferred date",
@@ -59,7 +62,7 @@ const steps: Array<{
     helper: "An email or phone number is enough to continue the booking.",
     key: "contact",
     inputType: "email",
-    placeholder: "name@example.com",
+    example: "name@example.com",
   },
 ];
 
@@ -82,6 +85,10 @@ export function Planner() {
     () => Math.min(((step + 1) / steps.length) * 100, 100),
     [step],
   );
+  const summarySubject = encodeURIComponent("DJ Julz booking enquiry");
+  const summaryBody = encodeURIComponent(
+    `Hi DJ Julz,\n\nI'd like to enquire about an event.\n\nCelebration: ${answers.celebration}\nGuest count: ${answers.guestCount}\nVenue: ${answers.venue}\nMusic style: ${answers.musicStyle}\nPreferred date: ${answers.preferredDate}\nContact: ${answers.contact}\n\nThank you.`,
+  );
 
   function updateAnswer(key: (typeof answerKeys)[number], value: string) {
     setError("");
@@ -102,7 +109,9 @@ export function Planner() {
       <div className="mx-auto max-w-md">
         <Reveal>
           <p className="eyebrow">Build Your Night Planner</p>
-          <h2 className="section-title mt-3">Shape the booking in a few steps.</h2>
+          <h2 className="section-title mt-3">
+            Share the details that shape the night.
+          </h2>
         </Reveal>
         <div className="premium-card mt-8 overflow-hidden">
           <div className="border-b border-border bg-surface p-5">
@@ -174,7 +183,7 @@ export function Planner() {
                           currentStep.inputType === "number" ? "numeric" : undefined
                         }
                         type={currentStep.inputType ?? "text"}
-                        placeholder={currentStep.placeholder}
+                        placeholder={currentStep.example}
                         value={answers[currentStep.key]}
                         onChange={(event) =>
                           updateAnswer(currentStep.key, event.target.value)
@@ -235,11 +244,11 @@ export function Planner() {
                     </motion.div>
                     <div>
                       <h3 className="font-heading text-4xl leading-none text-foreground">
-                        Planner summary
+                        Your enquiry summary
                       </h3>
                       <p className="caption mt-3">
-                        A clean snapshot of the enquiry before it becomes a booking
-                        form.
+                        Send this through and DJ Julz can respond with availability,
+                        setup guidance and the next step.
                       </p>
                     </div>
                   </div>
@@ -268,6 +277,15 @@ export function Planner() {
                     className="mt-6 w-full"
                   >
                     Edit answers
+                  </Button>
+                  <Button asChild variant="sage" className="mt-3 w-full">
+                    <Link
+                      href={`mailto:${siteConfig.email}?subject=${summarySubject}&body=${summaryBody}`}
+                      data-analytics="planner_email_enquiry"
+                    >
+                      Email enquiry
+                      <ArrowRight className="size-4" />
+                    </Link>
                   </Button>
                 </motion.div>
               )}

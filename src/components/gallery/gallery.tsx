@@ -11,12 +11,36 @@ import { Button } from "@/components/ui/button";
 import { warmBlurDataUrl } from "@/lib/image-placeholders";
 
 const moments = [
-  { title: "Ceremony arrival", position: "object-[58%_center]" },
-  { title: "Dinner atmosphere", position: "object-[68%_center]" },
-  { title: "First dance", position: "object-[50%_center]" },
-  { title: "Late-night floor", position: "object-[74%_center]" },
-  { title: "Private celebration", position: "object-[40%_center]" },
-  { title: "Brand event", position: "object-[62%_center]" },
+  {
+    title: "Wedding reception",
+    alt: "DJ setup prepared for a warm wedding reception in Gauteng",
+    position: "object-[58%_center]",
+  },
+  {
+    title: "Ceremony setup",
+    alt: "Ceremony music setup prepared before guests arrive",
+    position: "object-[68%_center]",
+  },
+  {
+    title: "Corporate event",
+    alt: "Polished event music setup for a corporate function",
+    position: "object-[50%_center]",
+  },
+  {
+    title: "DJ setup",
+    alt: "Professional DJ controller and event sound setup",
+    position: "object-[74%_center]",
+  },
+  {
+    title: "Behind the scenes",
+    alt: "Behind the scenes preparation before a private celebration",
+    position: "object-[40%_center]",
+  },
+  {
+    title: "Private celebration",
+    alt: "Private celebration atmosphere with DJ lighting and guests",
+    position: "object-[62%_center]",
+  },
 ];
 
 export function Gallery() {
@@ -93,7 +117,7 @@ export function Gallery() {
             >
               <Image
                 src="/images/dj-julz-hero-optimized.jpg"
-                alt=""
+                alt={moment.alt}
                 fill
                 sizes="(max-width: 640px) 45vw, 190px"
                 className={`object-cover transition-transform duration-500 ease-[var(--ease-premium)] group-hover:scale-[1.03] ${moment.position}`}
@@ -147,7 +171,7 @@ export function Gallery() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-surface">
                 <Image
                   src="/images/dj-julz-hero-optimized.jpg"
-                  alt={activeMoment.title}
+                  alt={activeMoment.alt}
                   fill
                   sizes="100vw"
                   className={`object-cover ${activeMoment.position}`}

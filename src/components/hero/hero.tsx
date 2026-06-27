@@ -67,7 +67,7 @@ export function Hero() {
           }}
           transition={{ duration: 0.45, ease: easing }}
         >
-          Wedding & Event DJ
+          Wedding DJ Pretoria
         </motion.p>
         <motion.h1
           className="hero-title mt-5"
@@ -77,7 +77,7 @@ export function Hero() {
           }}
           transition={{ duration: 0.55, ease: easing }}
         >
-          Music for moments that matter.
+          Calm music direction for weddings and events.
         </motion.h1>
         <motion.p
           className="body-copy mt-6"
@@ -87,8 +87,8 @@ export function Hero() {
           }}
           transition={{ duration: 0.5, ease: easing }}
         >
-          Calm, considered music direction for weddings, private celebrations and brand
-          events where every transition should feel effortless.
+          DJ Julz helps couples, companies and private hosts across Pretoria and Gauteng
+          create a clear, polished music plan from the first welcome to the final song.
         </motion.p>
         <motion.div
           className="mt-8 grid gap-3"
@@ -99,7 +99,7 @@ export function Hero() {
           transition={{ duration: 0.45, ease: easing }}
         >
           <Button asChild size="lg" variant="sage">
-            <Link href="#planner">
+            <Link href="#planner" data-analytics="book_consultation_hero">
               Book Consultation <ArrowRight className="size-4" />
             </Link>
           </Button>
@@ -116,7 +116,7 @@ export function Hero() {
           <div className="relative aspect-[4/5]">
             <Image
               src="/images/dj-julz-hero-optimized.jpg"
-              alt="Elegant private event DJ setup with warm lighting"
+              alt="DJ Julz wedding and event DJ setup for a Gauteng celebration"
               fill
               priority
               fetchPriority="high"
@@ -136,7 +136,7 @@ export function Hero() {
           }}
           transition={{ duration: 0.45, ease: easing }}
         >
-          Explore the experience{" "}
+          Explore the services{" "}
           <motion.span
             animate={reduceMotion ? undefined : { y: [0, 4, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}

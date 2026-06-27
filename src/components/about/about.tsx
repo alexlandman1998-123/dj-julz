@@ -5,9 +5,9 @@ import { MotionCard, Reveal } from "@/components/shared/motion";
 import { warmBlurDataUrl } from "@/lib/image-placeholders";
 
 const reasons = [
-  "Clear communication before the event",
-  "Music planned around the room and schedule",
-  "Professional presence for formal moments",
+  "A planning process that keeps timings, songs and formalities clear",
+  "Music shaped around the couple, guests, venue and event schedule",
+  "A professional presence for ceremonies, speeches and key transitions",
 ];
 
 export function About() {
@@ -18,7 +18,7 @@ export function About() {
           <div className="relative aspect-[5/4]">
             <Image
               src="/images/dj-julz-hero-optimized.jpg"
-              alt="Refined event atmosphere with DJ equipment"
+              alt="DJ booth prepared for a polished wedding reception in Gauteng"
               fill
               sizes="(max-width: 640px) 90vw, 420px"
               className="object-cover object-[70%_center]"
@@ -30,11 +30,13 @@ export function About() {
         <Reveal className="mt-8">
           <p className="eyebrow">About</p>
           <h2 className="section-title mt-3">
-            A steady hand for the moments people remember.
+            Professional, warm and prepared before the first guest arrives.
           </h2>
           <p className="body-copy mt-5">
-            DJ Julz brings a calm planning process, polished event flow and a warm sense
-            of timing to weddings, launches and private celebrations.
+            Based in Pretoria, DJ Julz works with wedding couples, planners and event
+            teams who want the music to feel considered rather than improvised. The
+            focus is simple: understand the room, protect the flow of the day and make
+            every important moment feel easy.
           </p>
           <div className="premium-card mt-6 p-5">
             <div className="flex items-center gap-3">
@@ -54,7 +56,9 @@ export function About() {
           </div>
           <div className="mt-4 flex items-center gap-3 rounded-3xl bg-surface p-4">
             <Headphones className="size-5 text-sage" />
-            <p className="caption">Built for clients who want taste, not spectacle.</p>
+            <p className="caption">
+              Serving Pretoria, Johannesburg, Centurion, Midrand and wider Gauteng.
+            </p>
           </div>
         </Reveal>
       </div>

@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
 
+import { Analytics } from "@/components/shared/analytics";
 import { Providers } from "@/components/shared/providers";
 import { siteConfig } from "@/config/site";
 
@@ -28,7 +29,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
+    default: "DJ Julz | Wedding & Event DJ Pretoria",
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -39,23 +40,36 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_ZA",
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: "DJ Julz | Wedding & Event DJ Pretoria",
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: "/images/dj-julz-hero.png",
-        width: 1536,
-        height: 1024,
-        alt: "DJ JULz event atmosphere",
+        url: "/images/dj-julz-hero-optimized.jpg",
+        width: 1200,
+        height: 675,
+        alt: "DJ Julz wedding and event DJ setup in Gauteng",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: "DJ Julz | Wedding & Event DJ Pretoria",
     description: siteConfig.description,
-    images: ["/images/dj-julz-hero.png"],
+    images: ["/images/dj-julz-hero-optimized.jpg"],
+  },
+  keywords: [
+    "Wedding DJ Pretoria",
+    "Wedding DJ Gauteng",
+    "Event DJ Pretoria",
+    "Corporate DJ Pretoria",
+    "Wedding entertainment Pretoria",
+    "DJ Centurion",
+    "DJ Johannesburg",
+    "DJ Midrand",
+  ],
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
   },
   robots: {
     index: true,
@@ -74,7 +88,10 @@ export default function RootLayout({
       className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <Analytics />
+        </Providers>
       </body>
     </html>
   );

@@ -12,21 +12,21 @@ import { cn } from "@/lib/utils";
 const reviews = [
   {
     quote:
-      "The whole night felt beautifully paced. Julz read the room perfectly and kept every moment calm before the dance floor opened.",
+      "Julz made the whole day feel easy. The ceremony, dinner and dance floor all had their own mood, and nothing ever felt rushed.",
     name: "Megan R.",
-    event: "Wedding",
+    event: "Pretoria Wedding",
   },
   {
     quote:
-      "Professional, warm and completely prepared. The music supported the brand event without ever overpowering the room.",
+      "Professional, warm and completely prepared. The music supported our year-end event without overpowering the room.",
     name: "Daniel K.",
-    event: "Corporate Event",
+    event: "Corporate Function",
   },
   {
     quote:
-      "Our guests still talk about the final hour. It felt personal, polished and incredibly easy from the first call.",
+      "Our guests still talk about the final hour. It felt personal, polished and incredibly easy from the first call to the last song.",
     name: "Aisha M.",
-    event: "Private Party",
+    event: "Milestone Birthday",
   },
 ];
 

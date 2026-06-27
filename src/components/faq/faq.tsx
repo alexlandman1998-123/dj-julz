@@ -10,22 +10,27 @@ const faqs = [
   {
     question: "How far in advance should I book?",
     answer:
-      "Three to six months is ideal for weddings and peak-season dates, but enquiries are welcome whenever your plans begin to take shape.",
+      "Three to six months is ideal for weddings and peak-season Gauteng dates. Shorter-notice enquiries are still welcome when availability allows.",
   },
   {
     question: "Do you provide sound equipment?",
     answer:
-      "The booking process can include sound requirements, venue details and ceremony or reception support where needed.",
+      "Sound and setup requirements are discussed during the consultation so the quote can match the venue, guest count and ceremony or reception needs.",
   },
   {
     question: "Can we request specific songs?",
     answer:
-      "Yes. The planner is built to capture must-play moments, do-not-play notes and the wider feeling you want for the room.",
+      "Yes. The planning process captures must-play songs, do-not-play notes, family favourites and the wider feeling you want for the room.",
   },
   {
     question: "Do you travel for events?",
     answer:
-      "Travel can be discussed during the consultation so the quote reflects the venue, schedule and setup requirements.",
+      "DJ Julz is based in Pretoria and serves Johannesburg, Centurion, Midrand and surrounding Gauteng areas. Travel outside Gauteng can be discussed.",
+  },
+  {
+    question: "What happens after I send an enquiry?",
+    answer:
+      "You will receive a response about availability, event fit and the next planning step. Once the date and scope are clear, a tailored quote can be prepared.",
   },
 ];
 

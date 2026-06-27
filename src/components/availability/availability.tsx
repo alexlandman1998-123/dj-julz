@@ -1,11 +1,19 @@
 import { MotionCard, Reveal } from "@/components/shared/motion";
 
-const months = [
-  { month: "September", status: "Available", tone: "bg-accent text-accent-foreground" },
-  { month: "October", status: "Limited", tone: "bg-surface-strong text-foreground" },
+const availability = [
   {
-    month: "November",
-    status: "Booking Fast",
+    month: "Wedding season",
+    status: "Limited weekends",
+    tone: "bg-accent text-accent-foreground",
+  },
+  {
+    month: "Corporate events",
+    status: "Weekdays available",
+    tone: "bg-surface-strong text-foreground",
+  },
+  {
+    month: "Private celebrations",
+    status: "Booking ahead",
     tone: "bg-primary text-primary-foreground",
   },
 ];
@@ -16,10 +24,10 @@ export function Availability() {
       <div className="mx-auto max-w-md">
         <Reveal>
           <p className="eyebrow">Availability</p>
-          <h2 className="section-title mt-3">Upcoming booking status.</h2>
+          <h2 className="section-title mt-3">Plan early for key dates.</h2>
         </Reveal>
         <div className="mt-8 grid gap-3">
-          {months.map((item, index) => (
+          {availability.map((item, index) => (
             <MotionCard
               key={item.month}
               className="flex items-center justify-between gap-4 p-5"
