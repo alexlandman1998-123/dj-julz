@@ -62,7 +62,7 @@ export function Hero() {
         <motion.p
           className="eyebrow"
           variants={{
-            hidden: { opacity: 0, y: 12 },
+            hidden: { opacity: 1, y: 12 },
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.45, ease: easing }}
@@ -72,7 +72,7 @@ export function Hero() {
         <motion.h1
           className="hero-title mt-5"
           variants={{
-            hidden: { opacity: 0, y: 18 },
+            hidden: { opacity: 1, y: 10 },
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.55, ease: easing }}

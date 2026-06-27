@@ -166,7 +166,7 @@
   }
 
   .hero-title {
-    @apply font-heading text-[4.75rem] leading-[0.82] tracking-normal text-balance text-foreground;
+    @apply font-heading text-[5.25rem] leading-[0.8] tracking-normal text-balance text-foreground;
   }
 
   .section-title {
