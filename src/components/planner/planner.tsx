@@ -12,10 +12,11 @@ import { siteConfig } from "@/config/site";
 const celebrationOptions = ["Wedding", "Corporate", "Birthday", "Other"];
 const answerKeys = [
   "celebration",
-  "guestCount",
   "venue",
+  "guestCount",
   "musicStyle",
   "preferredDate",
+  "eventNotes",
   "contact",
 ] as const;
 
@@ -25,44 +26,52 @@ const steps: Array<{
   key: (typeof answerKeys)[number];
   inputType?: string;
   example?: string;
+  multiline?: boolean;
 }> = [
   {
     title: "What are we celebrating?",
-    helper:
-      "Choose the event type so the first conversation starts in the right place.",
+    helper: "Choose the event type so DJ Julz can guide you to the right experience.",
     key: "celebration",
   },
   {
-    title: "Guest count",
-    helper: "An estimate is perfect for now.",
+    title: "Where will your event be held?",
+    helper: "The venue helps shape sound coverage, setup time and travel.",
+    key: "venue",
+    example: "Venue name, suburb or city",
+  },
+  {
+    title: "How many guests are you expecting?",
+    helper: "An estimate is enough for the first conversation.",
     key: "guestCount",
     inputType: "number",
     example: "120",
   },
   {
-    title: "Venue",
-    helper: "Share the venue name, city, or what you know so far.",
-    key: "venue",
-    example: "Pretoria country venue",
-  },
-  {
-    title: "Music style",
-    helper: "A few words about the mood, crowd, or must-play direction.",
+    title: "What atmosphere would you like to create?",
+    helper: "Share the mood, genres, must-play moments or anything to avoid.",
     key: "musicStyle",
-    example: "Warm dinner music, old-school favourites, upbeat dance floor",
+    example: "Elegant dinner, family favourites, then a full dance floor",
   },
   {
-    title: "Preferred date",
-    helper: "Add the date you have in mind.",
+    title: "When is your event?",
+    helper: "Use the confirmed date or the date you are currently considering.",
     key: "preferredDate",
     inputType: "date",
   },
   {
-    title: "Contact details",
-    helper: "An email or phone number is enough to continue the booking.",
+    title: "What else should DJ Julz know?",
+    helper:
+      "Add timings, ceremony notes, sound needs, MC requests or anything important.",
+    key: "eventNotes",
+    example: "Ceremony at 15:00, speeches after mains, outdoor canape area",
+    multiline: true,
+  },
+  {
+    title: "How can DJ Julz reach you?",
+    helper: "An email address or phone number is enough to check availability.",
     key: "contact",
-    inputType: "email",
-    example: "name@example.com",
+    inputType: "text",
+    example: "Your email or WhatsApp number",
   },
 ];
 
@@ -76,6 +85,7 @@ export function Planner() {
     venue: "",
     musicStyle: "",
     preferredDate: "",
+    eventNotes: "",
     contact: "",
   });
 
@@ -87,7 +97,7 @@ export function Planner() {
   );
   const summarySubject = encodeURIComponent("DJ Julz booking enquiry");
   const summaryBody = encodeURIComponent(
-    `Hi DJ Julz,\n\nI'd like to enquire about an event.\n\nCelebration: ${answers.celebration}\nGuest count: ${answers.guestCount}\nVenue: ${answers.venue}\nMusic style: ${answers.musicStyle}\nPreferred date: ${answers.preferredDate}\nContact: ${answers.contact}\n\nThank you.`,
+    `Hi DJ Julz,\n\nI'd like to enquire about an event.\n\nCelebration: ${answers.celebration}\nVenue: ${answers.venue}\nGuest count: ${answers.guestCount}\nAtmosphere: ${answers.musicStyle}\nPreferred date: ${answers.preferredDate}\nHelpful notes: ${answers.eventNotes}\nContact: ${answers.contact}\n\nThank you.`,
   );
 
   function updateAnswer(key: (typeof answerKeys)[number], value: string) {
@@ -97,7 +107,7 @@ export function Planner() {
 
   function goNext() {
     if (!answers[currentStep.key].trim()) {
-      setError("Add a quick answer to continue.");
+      setError("Add this detail so the enquiry is useful.");
       return;
     }
 
@@ -108,10 +118,14 @@ export function Planner() {
     <section id="planner" className="section-spacing px-5">
       <div className="mx-auto max-w-md">
         <Reveal>
-          <p className="eyebrow">Build Your Night Planner</p>
+          <p className="eyebrow">Start Planning Your Event</p>
           <h2 className="section-title mt-3">
-            Share the details that shape the night.
+            A simple way to check fit and availability.
           </h2>
+          <p className="body-copy mt-5">
+            A few thoughtful details are enough to start. DJ Julz will use them to
+            understand the room, recommend the right setup and guide the next step.
+          </p>
         </Reveal>
         <div className="premium-card mt-8 overflow-hidden">
           <div className="border-b border-border bg-surface p-5">
@@ -175,20 +189,33 @@ export function Planner() {
                       transition={{ duration: 0.22 }}
                     >
                       <span className="sr-only">{currentStep.title}</span>
-                      <input
-                        className={`min-h-14 w-full rounded-3xl border bg-white px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-sage focus:ring-3 focus:ring-ring/25 ${
-                          error ? "border-destructive" : "border-border"
-                        }`}
-                        inputMode={
-                          currentStep.inputType === "number" ? "numeric" : undefined
-                        }
-                        type={currentStep.inputType ?? "text"}
-                        placeholder={currentStep.example}
-                        value={answers[currentStep.key]}
-                        onChange={(event) =>
-                          updateAnswer(currentStep.key, event.target.value)
-                        }
-                      />
+                      {currentStep.multiline ? (
+                        <textarea
+                          className={`min-h-32 w-full rounded-3xl border bg-white px-4 py-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-sage focus:ring-3 focus:ring-ring/25 ${
+                            error ? "border-destructive" : "border-border"
+                          }`}
+                          placeholder={currentStep.example}
+                          value={answers[currentStep.key]}
+                          onChange={(event) =>
+                            updateAnswer(currentStep.key, event.target.value)
+                          }
+                        />
+                      ) : (
+                        <input
+                          className={`min-h-14 w-full rounded-3xl border bg-white px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-sage focus:ring-3 focus:ring-ring/25 ${
+                            error ? "border-destructive" : "border-border"
+                          }`}
+                          inputMode={
+                            currentStep.inputType === "number" ? "numeric" : undefined
+                          }
+                          type={currentStep.inputType ?? "text"}
+                          placeholder={currentStep.example}
+                          value={answers[currentStep.key]}
+                          onChange={(event) =>
+                            updateAnswer(currentStep.key, event.target.value)
+                          }
+                        />
+                      )}
                     </motion.label>
                   )}
 
@@ -217,10 +244,10 @@ export function Planner() {
                       variant="outline"
                     >
                       <ArrowLeft className="size-4" />
-                      Back
+                      Previous
                     </Button>
                     <Button type="button" onClick={goNext} variant="sage">
-                      Next
+                      Continue
                       <ArrowRight className="size-4" />
                     </Button>
                   </div>
@@ -244,11 +271,11 @@ export function Planner() {
                     </motion.div>
                     <div>
                       <h3 className="font-heading text-4xl leading-none text-foreground">
-                        Your enquiry summary
+                        Your planning snapshot
                       </h3>
                       <p className="caption mt-3">
-                        Send this through and DJ Julz can respond with availability,
-                        setup guidance and the next step.
+                        Send this through and DJ Julz can respond with date
+                        availability, setup guidance and a recommended experience.
                       </p>
                     </div>
                   </div>
@@ -276,14 +303,14 @@ export function Planner() {
                     variant="outline"
                     className="mt-6 w-full"
                   >
-                    Edit answers
+                    Refine the details
                   </Button>
                   <Button asChild variant="sage" className="mt-3 w-full">
                     <Link
                       href={`mailto:${siteConfig.email}?subject=${summarySubject}&body=${summaryBody}`}
                       data-analytics="planner_email_enquiry"
                     >
-                      Email enquiry
+                      Send enquiry
                       <ArrowRight className="size-4" />
                     </Link>
                   </Button>

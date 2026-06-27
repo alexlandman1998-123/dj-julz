@@ -12,32 +12,32 @@ import { warmBlurDataUrl } from "@/lib/image-placeholders";
 
 const moments = [
   {
-    title: "Wedding reception",
+    title: "The reception feels effortless",
     alt: "DJ setup prepared for a warm wedding reception in Gauteng",
     position: "object-[58%_center]",
   },
   {
-    title: "Ceremony setup",
+    title: "Ceremony music arrives on cue",
     alt: "Ceremony music setup prepared before guests arrive",
     position: "object-[68%_center]",
   },
   {
-    title: "Corporate event",
+    title: "Professional sound for formal rooms",
     alt: "Polished event music setup for a corporate function",
     position: "object-[50%_center]",
   },
   {
-    title: "DJ setup",
+    title: "A clean setup for refined venues",
     alt: "Professional DJ controller and event sound setup",
     position: "object-[74%_center]",
   },
   {
-    title: "Behind the scenes",
+    title: "Prepared before guests arrive",
     alt: "Behind the scenes preparation before a private celebration",
     position: "object-[40%_center]",
   },
   {
-    title: "Private celebration",
+    title: "Music shaped around your people",
     alt: "Private celebration atmosphere with DJ lighting and guests",
     position: "object-[62%_center]",
   },
@@ -96,8 +96,12 @@ export function Gallery() {
     <section id="gallery" className="section-spacing bg-surface px-5">
       <div className="mx-auto max-w-md">
         <Reveal>
-          <p className="eyebrow">Gallery</p>
-          <h2 className="section-title mt-3">A quiet look at memorable rooms.</h2>
+          <p className="eyebrow">Atmosphere</p>
+          <h2 className="section-title mt-3">Every room has its own rhythm.</h2>
+          <p className="body-copy mt-5">
+            The best event music does not fight for attention. It supports the ceremony,
+            warms the room, gives guests confidence and knows when to lift the energy.
+          </p>
         </Reveal>
         <div className="mt-8 grid grid-cols-2 gap-3">
           {moments.map((moment, index) => (
@@ -131,7 +135,7 @@ export function Gallery() {
           ))}
         </div>
         <Button asChild variant="outline" className="mt-7 w-full">
-          <Link href="#gallery">View Full Gallery</Link>
+          <Link href="#planner">Create Your Perfect Playlist</Link>
         </Button>
       </div>
       <AnimatePresence>

@@ -1,4 +1,16 @@
-import { ArrowRight, Building2, Heart, Mic2, PartyPopper } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  Clock,
+  CreditCard,
+  Heart,
+  Lightbulb,
+  MapPin,
+  Mic2,
+  PartyPopper,
+  Sparkles,
+  Volume2,
+} from "lucide-react";
 import Link from "next/link";
 
 import { MotionCard, Reveal } from "@/components/shared/motion";
@@ -6,36 +18,124 @@ import { Button } from "@/components/ui/button";
 
 const packages = [
   {
-    title: "Wedding DJ",
+    title: "Essential Wedding Experience",
+    price: "Starting from R6,500",
     description:
-      "A complete music plan for ceremonies, canapes, dinner, formalities and the dance floor.",
+      "Designed for couples who want a calm, professional wedding DJ for the core moments of the day.",
     includes: [
-      "Timeline planning",
-      "Must-play guidance",
-      "Reception and dance-floor set",
+      "Ceremony, cocktail hour and reception music planning",
+      "Professional DJ service with venue-appropriate sound",
+      "Timeline support for entrances, speeches and first dance",
+      "Full setup and breakdown",
     ],
     icon: Heart,
   },
   {
-    title: "Corporate Events",
+    title: "Premium Wedding Experience",
+    price: "Starting from R9,000",
     description:
-      "A professional soundtrack for awards evenings, launches, year-end functions and client events.",
-    includes: ["Brief alignment", "Background music", "Announcements support"],
+      "A more elevated wedding experience with enhanced production for couples who want the room to feel beautifully finished.",
+    includes: [
+      "Everything in the Essential Wedding Experience",
+      "Premium DJ booth presentation",
+      "Enhanced dance floor lighting",
+      "Atmosphere-led reception and party flow",
+    ],
+    icon: Sparkles,
+  },
+  {
+    title: "Corporate Event Experience",
+    price: "Starting from R4,000",
+    description:
+      "A polished music and sound solution for conferences, product launches, gala dinners, awards evenings and year-end functions.",
+    includes: [
+      "Professional DJ service",
+      "Venue-appropriate sound system",
+      "Wireless microphone",
+      "Dance floor lighting and smoke machine",
+      "Full setup and breakdown",
+    ],
     icon: Building2,
   },
   {
-    title: "Private Parties",
+    title: "Birthday & Private Celebration Experience",
+    price: "Starting from R3,000",
     description:
-      "Personal, guest-aware music for birthdays, anniversaries and milestone celebrations.",
-    includes: ["Crowd reading", "Playlist direction", "Flexible party flow"],
+      "Flexible music for milestone birthdays, engagements, anniversaries, family celebrations and private functions.",
+    includes: [
+      "Professional DJ service",
+      "Venue-appropriate sound system",
+      "Wireless microphone",
+      "Dance floor lighting",
+      "Full setup and breakdown",
+    ],
     icon: PartyPopper,
   },
+];
+
+const enhancements = [
   {
-    title: "MC Services",
+    title: "First Dance Edit",
     description:
-      "Clear, relaxed hosting for formal moments where the programme needs a steady voice.",
-    includes: ["Formal introductions", "Schedule cues", "Supplier coordination"],
+      "A clean, personal edit that helps your first dance feel intentional without running longer than it needs to.",
+    icon: Heart,
+  },
+  {
+    title: "Additional Wireless Microphone",
+    description:
+      "Useful for multiple speakers, ceremonies or larger rooms where clear voices matter.",
     icon: Mic2,
+  },
+  {
+    title: "Premium DJ Booth",
+    description:
+      "A neater front-of-room presentation that keeps the setup aligned with a refined venue.",
+    icon: Sparkles,
+  },
+  {
+    title: "Ambient Venue Lighting",
+    description:
+      "Soft lighting that adds warmth to the room and helps the evening feel more considered.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Enhanced Dance Floor Lighting",
+    description:
+      "Extra movement and energy for the party section while keeping the look tasteful.",
+    icon: Sparkles,
+  },
+  {
+    title: "Additional Venue Sound Coverage",
+    description:
+      "Recommended for larger venues, outdoor areas or spaces that need sound in more than one zone.",
+    icon: Volume2,
+  },
+];
+
+const bookingNotes = [
+  {
+    title: "Travel",
+    description:
+      "Pretoria, Johannesburg, Centurion, Midrand and surrounding Gauteng areas are quoted clearly. Longer-distance travel can be included once the venue is confirmed.",
+    icon: MapPin,
+  },
+  {
+    title: "Overtime",
+    description:
+      "If the celebration is still flowing, overtime can be discussed on the night where venue rules and availability allow.",
+    icon: Clock,
+  },
+  {
+    title: "Booking fee",
+    description:
+      "A booking fee secures the date, with the balance due before the event. Payment terms are confirmed in writing so there are no surprises.",
+    icon: CreditCard,
+  },
+  {
+    title: "Custom packages",
+    description:
+      "Larger venues, outdoor setups and multi-area sound needs can be quoted as a custom package after a short consultation.",
+    icon: Volume2,
   },
 ];
 
@@ -44,8 +144,12 @@ export function Packages() {
     <section id="packages" className="section-spacing bg-surface px-5">
       <div className="mx-auto max-w-md">
         <Reveal>
-          <p className="eyebrow">Packages</p>
-          <h2 className="section-title mt-3">Services shaped around the event.</h2>
+          <p className="eyebrow">Experiences</p>
+          <h2 className="section-title mt-3">Choose the service that fits the room.</h2>
+          <p className="body-copy mt-5">
+            Every quote is shaped around the venue, timing and guest experience. The
+            starting points below make it easier to choose the right conversation.
+          </p>
         </Reveal>
         <div className="mt-8 grid gap-4">
           {packages.map((item, index) => (
@@ -56,6 +160,7 @@ export function Packages() {
                 </div>
                 <div>
                   <h3 className="card-title">{item.title}</h3>
+                  <p className="mt-1 text-sm font-semibold text-sage">{item.price}</p>
                   <p className="caption mt-2">{item.description}</p>
                   <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground">
                     {item.includes.map((detail) => (
@@ -72,9 +177,53 @@ export function Packages() {
                   href="#planner"
                   data-analytics={`package_${item.title.toLowerCase().replace(/\s+/g, "_")}`}
                 >
-                  Start enquiry <ArrowRight className="size-4" />
+                  Enquire about this experience <ArrowRight className="size-4" />
                 </Link>
               </Button>
+            </MotionCard>
+          ))}
+        </div>
+        <Reveal className="mt-12">
+          <p className="eyebrow">Enhancements</p>
+          <h3 className="section-title mt-3">
+            Small details that lift the experience.
+          </h3>
+        </Reveal>
+        <div className="mt-6 grid gap-3">
+          {enhancements.map((item, index) => (
+            <MotionCard key={item.title} className="p-5" delay={index * 0.035}>
+              <div className="flex gap-4">
+                <div className="grid size-10 shrink-0 place-items-center rounded-2xl bg-accent text-accent-foreground">
+                  <item.icon className="size-4" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground">
+                    {item.title}
+                  </h4>
+                  <p className="caption mt-1">{item.description}</p>
+                </div>
+              </div>
+            </MotionCard>
+          ))}
+        </div>
+        <Reveal className="mt-12">
+          <p className="eyebrow">Good to know</p>
+          <h3 className="section-title mt-3">Clear details before you book.</h3>
+        </Reveal>
+        <div className="mt-6 grid gap-3">
+          {bookingNotes.map((item, index) => (
+            <MotionCard key={item.title} className="p-5" delay={index * 0.035}>
+              <div className="flex gap-4">
+                <div className="grid size-10 shrink-0 place-items-center rounded-2xl bg-white text-sage">
+                  <item.icon className="size-4" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground">
+                    {item.title}
+                  </h4>
+                  <p className="caption mt-1">{item.description}</p>
+                </div>
+              </div>
             </MotionCard>
           ))}
         </div>

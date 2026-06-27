@@ -6,9 +6,9 @@ import { siteConfig } from "@/config/site";
 
 const links = [
   { label: "About", href: "#about" },
-  { label: "Packages", href: "#packages" },
-  { label: "Planner", href: "#planner" },
-  { label: "Contact", href: "#contact" },
+  { label: "Experiences", href: "#packages" },
+  { label: "Plan", href: "#planner" },
+  { label: "Enquire", href: "#contact" },
 ];
 
 export function Footer() {
@@ -34,7 +34,8 @@ export function Footer() {
       <Reveal className="mx-auto max-w-md">
         <p className="font-heading text-4xl leading-none text-foreground">DJ Julz</p>
         <p className="caption mt-3">
-          Wedding and event music direction with a calm planning process.
+          Premium wedding entertainment, corporate event music and private celebration
+          DJ services from Pretoria to greater Gauteng.
         </p>
         <nav className="mt-6 grid grid-cols-2 gap-3">
           {links.map((link) => (
@@ -101,7 +102,8 @@ export function Footer() {
           Privacy policy
         </Link>
         <p className="mt-6 text-xs text-muted-foreground">
-          {new Date().getFullYear()} DJ Julz. All rights reserved.
+          {new Date().getFullYear()} DJ Julz. Calm, considered music for events that
+          deserve to feel effortless.
         </p>
       </Reveal>
     </footer>

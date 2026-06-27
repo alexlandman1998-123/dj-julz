@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { label: "About", href: "#about" },
-  { label: "Packages", href: "#packages" },
-  { label: "Planner", href: "#planner" },
-  { label: "Reviews", href: "#reviews" },
+  { label: "Experiences", href: "#packages" },
+  { label: "Plan", href: "#planner" },
+  { label: "Details", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -77,7 +77,7 @@ export function Navigation() {
           <Button asChild size="sm" className="h-10 px-4">
             <Link href="#planner">
               <CalendarCheck className="size-4" />
-              Book Now
+              Check Date
             </Link>
           </Button>
           <Button

@@ -32,6 +32,7 @@ export function getStructuredData() {
       "Corporate DJ Pretoria",
       "Event DJ Pretoria",
       "Wedding entertainment Pretoria",
+      "Mobile DJ Pretoria",
     ],
   };
 }

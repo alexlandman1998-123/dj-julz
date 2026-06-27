@@ -3,17 +3,17 @@ import { MotionCard, Reveal } from "@/components/shared/motion";
 const availability = [
   {
     month: "Wedding season",
-    status: "Limited weekends",
+    status: "Check early",
     tone: "bg-accent text-accent-foreground",
   },
   {
     month: "Corporate events",
-    status: "Weekdays available",
+    status: "Plan the brief",
     tone: "bg-surface-strong text-foreground",
   },
   {
     month: "Private celebrations",
-    status: "Booking ahead",
+    status: "Flexible dates",
     tone: "bg-primary text-primary-foreground",
   },
 ];
@@ -24,7 +24,14 @@ export function Availability() {
       <div className="mx-auto max-w-md">
         <Reveal>
           <p className="eyebrow">Availability</p>
-          <h2 className="section-title mt-3">Plan early for key dates.</h2>
+          <h2 className="section-title mt-3">
+            The best dates are easier when you ask early.
+          </h2>
+          <p className="body-copy mt-5">
+            Share your date, venue and guest count first. If the date is open, DJ Julz
+            can recommend the right experience and any sound additions your venue may
+            need.
+          </p>
         </Reveal>
         <div className="mt-8 grid gap-3">
           {availability.map((item, index) => (

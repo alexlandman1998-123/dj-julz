@@ -9,9 +9,9 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "Experience", href: "#experience" },
-  { label: "Packages", href: "#packages" },
-  { label: "Planner", href: "#planner" },
+  { label: "About", href: "#about" },
+  { label: "Experiences", href: "#packages" },
+  { label: "Plan", href: "#planner" },
   { label: "FAQ", href: "#faq" },
 ] as const;
 
@@ -23,26 +23,33 @@ export const stats = [
 
 export const packages = [
   {
-    title: "Wedding DJ",
-    price: "Custom quote",
+    title: "Essential Wedding Experience",
+    price: "Starting from R6,500",
     description:
-      "Music planning for ceremonies, canapes, dinner, formalities and the dance floor.",
-    features: ["Timeline planning", "Must-play guidance", "Reception flow"],
+      "A calm, professional wedding DJ experience for ceremony, cocktail hour, reception and dance floor moments.",
+    features: ["Ceremony support", "Reception flow", "Full setup and breakdown"],
   },
   {
-    title: "Corporate Events",
-    price: "Custom quote",
+    title: "Premium Wedding Experience",
+    price: "Starting from R9,000",
     description:
-      "A polished soundtrack for awards evenings, launches, year-end functions and brand events.",
-    features: ["Brief alignment", "Background music", "Announcements support"],
+      "An elevated wedding experience with enhanced production, lighting and a premium DJ booth presentation.",
+    features: ["Enhanced production", "Premium atmosphere", "Dance floor lighting"],
     featured: true,
   },
   {
-    title: "Private Celebrations",
-    price: "Custom",
+    title: "Corporate Event Experience",
+    price: "Starting from R4,000",
     description:
-      "Personal, guest-aware music for birthdays, anniversaries and milestone celebrations.",
-    features: ["Crowd reading", "Playlist direction", "Flexible party flow"],
+      "Professional event DJ service for conferences, product launches, gala dinners, awards evenings and year-end functions.",
+    features: ["Wireless microphone", "Venue sound", "Professional presentation"],
+  },
+  {
+    title: "Birthday & Private Celebration Experience",
+    price: "Starting from R3,000",
+    description:
+      "Flexible music for birthdays, engagements, anniversaries and private celebrations.",
+    features: ["Crowd reading", "Wireless microphone", "Dance floor lighting"],
   },
 ] as const;
 
@@ -54,7 +61,8 @@ export const experiencePoints: Array<{
   {
     icon: Headphones,
     title: "Music-first planning",
-    description: "The set is shaped around the room, the brief and the event timeline.",
+    description:
+      "The music is shaped around the room, the brief and the event timeline.",
   },
   {
     icon: UsersRound,
@@ -71,68 +79,68 @@ export const experiencePoints: Array<{
     icon: Sparkles,
     title: "Premium restraint",
     description:
-      "A refined atmosphere for clients who want professionalism, warmth and clarity.",
+      "A refined atmosphere for hosts who want professionalism, warmth and clarity.",
   },
 ];
 
 export const testimonials = [
   {
     quote:
-      "Every transition felt intentional. The room moved naturally from dinner into a full dance floor.",
-    name: "Mia",
-    role: "Wedding client",
+      "Ceremony cues, reception flow and the first dance all need to feel calm, timed and personal.",
+    name: "For wedding couples",
+    role: "Ceremony to dance floor",
   },
   {
     quote:
-      "The music direction made the launch feel expensive, calm, and alive at the same time.",
-    name: "Daniel",
-    role: "Brand event producer",
+      "The music should support the brand, keep the programme moving and never overpower the room.",
+    name: "For corporate teams",
+    role: "Awards, launches and functions",
   },
   {
     quote:
-      "Easy planning, beautiful pacing, and the perfect balance between crowd favourites and taste.",
-    name: "Lerato",
-    role: "Private celebration",
+      "A private celebration needs flexibility: family favourites, guest energy and a DJ who can read the moment.",
+    name: "For private hosts",
+    role: "Birthdays and anniversaries",
   },
 ] as const;
 
 export const plannerSteps = [
   {
     icon: CalendarDays,
-    title: "Check the date",
-    description: "Share your event date, venue, and ideal start time.",
+    title: "Check your date",
+    description: "Share your event date, venue and guest count.",
   },
   {
     icon: Music2,
     title: "Shape the brief",
-    description: "Define the room, the key songs and the music direction.",
+    description: "Define the atmosphere, key songs and music direction.",
   },
   {
     icon: Sparkles,
     title: "Confirm the flow",
-    description: "Lock the package, timings, and key moments before event week.",
+    description: "Confirm the experience, timings and key moments before event week.",
   },
 ] as const;
 
 export const faqs = [
   {
-    question: "How far in advance should I book?",
+    question: "How far do you travel?",
     answer:
-      "Three to six months is ideal for weddings and peak-season Gauteng dates. Shorter-notice enquiries are welcome when availability allows.",
+      "DJ Julz is based in Pretoria and regularly serves Johannesburg, Centurion, Midrand and surrounding Gauteng areas.",
   },
   {
-    question: "Can the set include specific songs?",
+    question: "Can we request songs?",
     answer:
       "Yes. The planner captures must-play, do-not-play, and preferred genres so the set still feels personal without becoming a rigid playlist.",
   },
   {
-    question: "Is sound equipment included?",
+    question: "Do you provide microphones?",
     answer:
-      "Sound and setup requirements are discussed during the consultation so the quote can match the venue, guest count and ceremony or reception needs.",
+      "A wireless microphone is included with corporate and private celebration experiences. Additional microphones can be added where needed.",
   },
   {
-    question: "Do you travel?",
+    question: "What equipment do you provide?",
     answer:
-      "DJ Julz is based in Pretoria and serves Johannesburg, Centurion, Midrand and surrounding Gauteng areas. Travel outside Gauteng can be discussed.",
+      "Packages can include professional DJ equipment, venue-appropriate sound, wireless microphone, dance floor lighting and selected enhancements.",
   },
 ] as const;

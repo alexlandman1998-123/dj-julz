@@ -5,9 +5,10 @@ import { MotionCard, Reveal } from "@/components/shared/motion";
 import { warmBlurDataUrl } from "@/lib/image-placeholders";
 
 const reasons = [
-  "A planning process that keeps timings, songs and formalities clear",
-  "Music shaped around the couple, guests, venue and event schedule",
-  "A professional presence for ceremonies, speeches and key transitions",
+  "Professional and reliable from the first enquiry to the final pack-down",
+  "A tailored music experience shaped around your guests, venue and timeline",
+  "Seamless coordination for ceremonies, speeches, formalities and dance floors",
+  "Premium equipment selected to suit the room, not overwhelm it",
 ];
 
 export function About() {
@@ -28,22 +29,26 @@ export function About() {
           </div>
         </MotionCard>
         <Reveal className="mt-8">
-          <p className="eyebrow">About</p>
+          <p className="eyebrow">About DJ Julz</p>
           <h2 className="section-title mt-3">
-            Professional, warm and prepared before the first guest arrives.
+            Music should make the whole event feel easier.
           </h2>
           <p className="body-copy mt-5">
-            Based in Pretoria, DJ Julz works with wedding couples, planners and event
-            teams who want the music to feel considered rather than improvised. The
-            focus is simple: understand the room, protect the flow of the day and make
-            every important moment feel easy.
+            DJ Julz approaches every event like a host, not just a performer. The work
+            starts with listening: the mood you want to create, the people in the room,
+            the key transitions and the details that could easily be missed.
+          </p>
+          <p className="body-copy mt-4">
+            That preparation is what allows the day to feel relaxed. Ceremony music
+            lands on time, speeches move cleanly, dinner has the right atmosphere and
+            the dance floor builds naturally when guests are ready.
           </p>
           <div className="premium-card mt-6 p-5">
             <div className="flex items-center gap-3">
               <div className="grid size-10 place-items-center rounded-full bg-accent text-accent-foreground">
                 <UsersRound className="size-5" />
               </div>
-              <h3 className="card-title">Why clients choose DJ Julz</h3>
+              <h3 className="card-title">Why hosts choose DJ Julz</h3>
             </div>
             <ul className="mt-5 grid gap-3">
               {reasons.map((reason) => (
@@ -57,7 +62,8 @@ export function About() {
           <div className="mt-4 flex items-center gap-3 rounded-3xl bg-surface p-4">
             <Headphones className="size-5 text-sage" />
             <p className="caption">
-              Serving Pretoria, Johannesburg, Centurion, Midrand and wider Gauteng.
+              Wedding DJ Pretoria, corporate DJ Pretoria and mobile DJ services across
+              Johannesburg, Centurion, Midrand and wider Gauteng.
             </p>
           </div>
         </Reveal>

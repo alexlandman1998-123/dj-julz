@@ -67,7 +67,7 @@ export function Hero() {
           }}
           transition={{ duration: 0.45, ease: easing }}
         >
-          Wedding DJ Pretoria
+          Wedding DJ Pretoria & Gauteng
         </motion.p>
         <motion.h1
           className="hero-title mt-5"
@@ -77,7 +77,7 @@ export function Hero() {
           }}
           transition={{ duration: 0.55, ease: easing }}
         >
-          Calm music direction for weddings and events.
+          The calm, confident sound behind unforgettable events.
         </motion.h1>
         <motion.p
           className="body-copy mt-6"
@@ -87,8 +87,9 @@ export function Hero() {
           }}
           transition={{ duration: 0.5, ease: easing }}
         >
-          DJ Julz helps couples, companies and private hosts across Pretoria and Gauteng
-          create a clear, polished music plan from the first welcome to the final song.
+          DJ Julz provides premium wedding, corporate and private event DJ services in
+          Pretoria and across Gauteng, with thoughtful planning, polished coordination
+          and music that feels right for the room.
         </motion.p>
         <motion.div
           className="mt-8 grid gap-3"
@@ -100,13 +101,24 @@ export function Hero() {
         >
           <Button asChild size="lg" variant="sage">
             <Link href="#planner" data-analytics="book_consultation_hero">
-              Book Consultation <ArrowRight className="size-4" />
+              Check My Date <ArrowRight className="size-4" />
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <Link href="#packages">View Packages</Link>
+            <Link href="#packages">Explore Experiences</Link>
           </Button>
         </motion.div>
+        <motion.p
+          className="caption mt-5 rounded-full bg-white/85 px-4 py-3 text-center"
+          variants={{
+            hidden: { opacity: 0, y: 8 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.42, ease: easing }}
+        >
+          Professional planning for ceremonies, receptions, launches and private
+          celebrations.
+        </motion.p>
         <motion.div
           className="premium-card mt-8 overflow-hidden bg-surface"
           initial={false}
@@ -136,7 +148,7 @@ export function Hero() {
           }}
           transition={{ duration: 0.45, ease: easing }}
         >
-          Explore the services{" "}
+          See how the event comes together{" "}
           <motion.span
             animate={reduceMotion ? undefined : { y: [0, 4, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}

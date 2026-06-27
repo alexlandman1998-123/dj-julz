@@ -1,11 +1,10 @@
-import { AnimatedStat } from "@/components/shared/animated-stat";
 import { MotionCard } from "@/components/shared/motion";
 
 const stats = [
-  { value: 350, suffix: "+", label: "Events shaped" },
-  { value: 200, suffix: "+", label: "Weddings supported" },
-  { value: 12, suffix: "", label: "Years experience" },
-  { value: 5, suffix: "★", label: "Client reviews" },
+  { value: "350+", label: "Events shaped with care" },
+  { value: "200+", label: "Wedding celebrations supported" },
+  { value: "12 yrs", label: "Experience reading rooms" },
+  { value: "Gauteng", label: "Pretoria-based mobile DJ" },
 ];
 
 export function Stats() {
@@ -15,7 +14,7 @@ export function Stats() {
         {stats.map((stat, index) => (
           <MotionCard key={stat.label} className="p-5" delay={index * 0.04}>
             <p className="font-heading text-5xl leading-none text-foreground">
-              <AnimatedStat value={stat.value} suffix={stat.suffix} />
+              {stat.value}
             </p>
             <p className="caption mt-3">{stat.label}</p>
           </MotionCard>

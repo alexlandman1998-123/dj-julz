@@ -8,13 +8,14 @@ export default function NotFound() {
       <div className="mx-auto max-w-2xl px-5 text-center">
         <p className="text-sm font-medium text-muted-foreground">404</p>
         <h1 className="mt-6 text-balance font-heading text-5xl leading-none md:text-7xl">
-          This page is not available.
+          This page is taking a quieter route.
         </h1>
         <p className="mt-6 text-balance text-lg text-muted-foreground">
-          The page you are looking for is not available.
+          The page you are looking for is not available, but the event planning can
+          continue from the homepage.
         </p>
         <Button asChild className="mt-8 rounded-full">
-          <Link href="/">Back home</Link>
+          <Link href="/">Return to DJ Julz</Link>
         </Button>
       </div>
     </main>

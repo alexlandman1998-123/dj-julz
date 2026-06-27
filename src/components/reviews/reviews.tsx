@@ -12,21 +12,21 @@ import { cn } from "@/lib/utils";
 const reviews = [
   {
     quote:
-      "A clear planning call, thoughtful music direction and calm coordination before the event begins.",
-    name: "Wedding clients",
-    event: "Pretoria and Gauteng",
+      "Ceremony cues, reception flow and the first dance all need to feel calm, timed and personal.",
+    name: "For wedding couples",
+    event: "Ceremony to dance floor",
   },
   {
     quote:
-      "Background music that supports the room, formalities that stay on schedule and a confident shift into celebration.",
-    name: "Corporate teams",
-    event: "Launches and functions",
+      "The music should support the brand, keep the programme moving and never overpower the room.",
+    name: "For corporate teams",
+    event: "Awards, launches and functions",
   },
   {
     quote:
-      "A personal music brief that balances host favourites, guest energy and the flow of the night.",
-    name: "Private hosts",
-    event: "Milestone celebrations",
+      "A private celebration needs flexibility: family favourites, guest energy and a DJ who can read the moment.",
+    name: "For private hosts",
+    event: "Birthdays and anniversaries",
   },
 ];
 
@@ -70,8 +70,10 @@ export function Reviews() {
   return (
     <section id="reviews" className="section-spacing px-5">
       <Reveal className="mx-auto max-w-md">
-        <p className="eyebrow">Client priorities</p>
-        <h2 className="section-title mt-3">Built around what hosts care about.</h2>
+        <p className="eyebrow">What matters</p>
+        <h2 className="section-title mt-3">
+          The details guests may not notice, but feel.
+        </h2>
       </Reveal>
       <div className="mx-auto mt-8 max-w-md overflow-hidden" ref={emblaRef}>
         <div className="flex gap-4">

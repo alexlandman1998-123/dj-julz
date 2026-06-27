@@ -23,7 +23,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "DJ Julz | Wedding & Event DJ Pretoria",
+    default: "DJ Julz | Premium Wedding & Event DJ Pretoria",
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_ZA",
     url: siteConfig.url,
-    title: "DJ Julz | Wedding & Event DJ Pretoria",
+    title: "DJ Julz | Premium Wedding & Event DJ Pretoria",
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DJ Julz | Wedding & Event DJ Pretoria",
+    title: "DJ Julz | Premium Wedding & Event DJ Pretoria",
     description: siteConfig.description,
     images: ["/images/dj-julz-hero-optimized.jpg"],
   },
@@ -58,6 +58,7 @@ export const metadata: Metadata = {
     "Event DJ Pretoria",
     "Corporate DJ Pretoria",
     "Wedding entertainment Pretoria",
+    "Mobile DJ Pretoria",
     "DJ Centurion",
     "DJ Johannesburg",
     "DJ Midrand",

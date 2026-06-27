@@ -8,29 +8,44 @@ import {
 
 const faqs = [
   {
-    question: "How far in advance should I book?",
+    question: "How far do you travel?",
     answer:
-      "Three to six months is ideal for weddings and peak-season Gauteng dates. Shorter-notice enquiries are still welcome when availability allows.",
+      "DJ Julz is based in Pretoria and regularly serves Johannesburg, Centurion, Midrand and surrounding Gauteng areas. Travel outside Gauteng can be quoted once the venue and timings are clear.",
   },
   {
-    question: "Do you provide sound equipment?",
+    question: "Can we request songs?",
     answer:
-      "Sound and setup requirements are discussed during the consultation so the quote can match the venue, guest count and ceremony or reception needs.",
+      "Yes. Your planning brief can include must-play songs, do-not-play notes, family favourites and the overall mood you want for each part of the event.",
   },
   {
-    question: "Can we request specific songs?",
+    question: "Do you provide microphones?",
     answer:
-      "Yes. The planning process captures must-play songs, do-not-play notes, family favourites and the wider feeling you want for the room.",
+      "A wireless microphone is included with corporate and private celebration experiences. Additional microphones can be added for ceremonies, panels or multiple speakers.",
   },
   {
-    question: "Do you travel for events?",
+    question: "Can DJ Julz MC our event?",
     answer:
-      "DJ Julz is based in Pretoria and serves Johannesburg, Centurion, Midrand and surrounding Gauteng areas. Travel outside Gauteng can be discussed.",
+      "Light MC support can be included for introductions, announcements and key transitions. If your programme needs full formal hosting, that can be discussed during the consultation.",
   },
   {
-    question: "What happens after I send an enquiry?",
+    question: "How do we secure our booking?",
     answer:
-      "You will receive a response about availability, event fit and the next planning step. Once the date and scope are clear, a tailored quote can be prepared.",
+      "Once the date, venue and package are confirmed, a booking fee secures the date. The remaining balance and payment timing are confirmed in writing before the event.",
+  },
+  {
+    question: "What happens if our event runs late?",
+    answer:
+      "Overtime can be arranged where the venue allows it and DJ Julz is available to continue. The rate and process are discussed upfront so the decision is simple on the night.",
+  },
+  {
+    question: "Do you cater for outdoor venues?",
+    answer:
+      "Yes, provided the setup area has safe cover, reliable power and suitable access. Outdoor sound needs are reviewed before quoting so guests can hear clearly without the setup feeling excessive.",
+  },
+  {
+    question: "What equipment do you provide?",
+    answer:
+      "Packages can include professional DJ equipment, venue-appropriate sound, wireless microphone, dance floor lighting and selected enhancements such as premium booth or additional sound coverage.",
   },
 ];
 
@@ -40,7 +55,7 @@ export function FAQ() {
       <div className="mx-auto max-w-md">
         <Reveal>
           <p className="eyebrow">FAQ</p>
-          <h2 className="section-title mt-3">Common questions.</h2>
+          <h2 className="section-title mt-3">Clear answers before you enquire.</h2>
         </Reveal>
         <Accordion type="single" collapsible className="mt-8 grid gap-3">
           {faqs.map((item) => (

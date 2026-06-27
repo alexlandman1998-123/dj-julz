@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "DJ Julz",
   url: "https://dj-julz.vercel.app",
   description:
-    "Wedding and event DJ in Pretoria serving Gauteng, Johannesburg, Centurion and Midrand with polished music planning for weddings, corporate events and private celebrations.",
+    "Premium wedding DJ and event DJ in Pretoria serving Gauteng, Johannesburg, Centurion and Midrand with calm planning, polished sound and elegant music direction.",
   email: process.env.NEXT_PUBLIC_BOOKING_EMAIL ?? "bookings@djjulz.co.za",
   phone: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? "",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "",
