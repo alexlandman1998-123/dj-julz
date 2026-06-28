@@ -93,9 +93,9 @@ export function Gallery() {
   }, [closeLightbox, goTo, selected]);
 
   return (
-    <section id="gallery" className="section-spacing bg-surface px-5">
-      <div className="mx-auto max-w-md">
-        <Reveal>
+    <section id="gallery" className="section-spacing bg-surface px-5 lg:px-8">
+      <div className="mx-auto max-w-md lg:max-w-6xl">
+        <Reveal className="lg:max-w-3xl">
           <p className="eyebrow">Atmosphere</p>
           <h2 className="section-title mt-3">Every room has its own rhythm.</h2>
           <p className="body-copy mt-5">
@@ -103,7 +103,7 @@ export function Gallery() {
             warms the room, gives guests confidence and knows when to lift the energy.
           </p>
         </Reveal>
-        <div className="mt-8 grid grid-cols-2 gap-3">
+        <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-6 lg:gap-4">
           {moments.map((moment, index) => (
             <motion.button
               key={moment.title}
@@ -123,7 +123,7 @@ export function Gallery() {
                 src="/images/dj-julz-hero-optimized.jpg"
                 alt={moment.alt}
                 fill
-                sizes="(max-width: 640px) 45vw, 190px"
+                sizes="(max-width: 640px) 45vw, (max-width: 1024px) 190px, 16vw"
                 className={`object-cover transition-transform duration-500 ease-[var(--ease-premium)] group-hover:scale-[1.03] ${moment.position}`}
                 placeholder="blur"
                 blurDataURL={warmBlurDataUrl}
@@ -134,7 +134,7 @@ export function Gallery() {
             </motion.button>
           ))}
         </div>
-        <Button asChild variant="outline" className="mt-7 w-full">
+        <Button asChild variant="outline" className="mt-7 w-full lg:w-auto lg:px-10">
           <Link href="#planner">Create Your Perfect Playlist</Link>
         </Button>
       </div>

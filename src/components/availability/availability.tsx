@@ -34,9 +34,9 @@ const days = [
 
 export function Availability() {
   return (
-    <section id="availability" className="section-spacing bg-surface px-5">
-      <div className="mx-auto max-w-md">
-        <Reveal>
+    <section id="availability" className="section-spacing bg-surface px-5 lg:px-8">
+      <div className="mx-auto max-w-md lg:grid lg:max-w-6xl lg:grid-cols-[0.8fr_1fr] lg:items-start lg:gap-16">
+        <Reveal className="lg:sticky lg:top-28">
           <p className="eyebrow">Availability</p>
           <h2 className="section-title mt-3">
             The best dates are easier when you ask early.
@@ -47,7 +47,7 @@ export function Availability() {
             need.
           </p>
         </Reveal>
-        <MotionCard className="mt-8 p-5">
+        <MotionCard className="mt-8 p-5 lg:mt-0 lg:p-8">
           <div className="flex items-center justify-between">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-foreground">
               Availability preview

@@ -147,9 +147,9 @@ const bookingNotes = [
 
 export function Packages() {
   return (
-    <section id="packages" className="section-spacing bg-surface px-5">
-      <div className="mx-auto max-w-md">
-        <Reveal>
+    <section id="packages" className="section-spacing bg-surface px-5 lg:px-8">
+      <div className="mx-auto max-w-md lg:max-w-6xl">
+        <Reveal className="lg:max-w-3xl">
           <p className="eyebrow">Experiences</p>
           <h2 className="section-title mt-3">Choose the service that fits the room.</h2>
           <p className="body-copy mt-5">
@@ -157,7 +157,7 @@ export function Packages() {
             starting points below make it easier to choose the right conversation.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-5">
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
           {packages.map((item, index) => (
             <MotionCard
               key={item.title}
@@ -212,7 +212,7 @@ export function Packages() {
             Small details that lift the experience.
           </h3>
         </Reveal>
-        <div className="mt-6 grid gap-3">
+        <div className="mt-6 grid gap-3 lg:grid-cols-3">
           {enhancements.map((item, index) => (
             <MotionCard key={item.title} className="p-5" delay={index * 0.035}>
               <div className="flex gap-4">
@@ -233,7 +233,7 @@ export function Packages() {
           <p className="eyebrow">Good to know</p>
           <h3 className="section-title mt-3">Clear details before you book.</h3>
         </Reveal>
-        <div className="mt-6 grid gap-3">
+        <div className="mt-6 grid gap-3 lg:grid-cols-4">
           {bookingNotes.map((item, index) => (
             <MotionCard key={item.title} className="p-5" delay={index * 0.035}>
               <div className="flex gap-4">

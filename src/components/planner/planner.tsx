@@ -128,9 +128,9 @@ export function Planner() {
   }
 
   return (
-    <section id="planner" className="section-spacing px-5">
-      <div className="mx-auto max-w-md">
-        <Reveal>
+    <section id="planner" className="section-spacing px-5 lg:px-8">
+      <div className="mx-auto max-w-md lg:grid lg:max-w-6xl lg:grid-cols-[0.78fr_1fr] lg:items-start lg:gap-16">
+        <Reveal className="lg:sticky lg:top-28">
           <p className="eyebrow">Start Planning Your Event</p>
           <h2 className="section-title mt-3">
             A simple way to check fit and availability.
@@ -140,7 +140,7 @@ export function Planner() {
             understand the room, recommend the right setup and guide the next step.
           </p>
         </Reveal>
-        <div className="premium-card mt-8 overflow-hidden">
+        <div className="premium-card mt-8 overflow-hidden lg:mt-0">
           <div className="border-b border-border bg-surface p-5">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-semibold text-foreground">
@@ -195,7 +195,7 @@ export function Planner() {
                   <p className="caption mt-3">{currentStep.helper}</p>
 
                   {currentStep.key === "celebration" ? (
-                    <div className="mt-6 grid grid-cols-2 gap-3">
+                    <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
                       {celebrationOptions.map((option) => {
                         const selected = answers.celebration === option.label;
 

@@ -51,13 +51,13 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="section-spacing px-5">
-      <div className="mx-auto max-w-md">
+    <section id="faq" className="section-spacing px-5 lg:px-8">
+      <div className="mx-auto max-w-md lg:grid lg:max-w-6xl lg:grid-cols-[0.75fr_1fr] lg:gap-16">
         <Reveal>
           <p className="eyebrow">FAQ</p>
           <h2 className="section-title mt-3">Clear answers before you enquire.</h2>
         </Reveal>
-        <Accordion type="single" collapsible className="mt-8 grid gap-3">
+        <Accordion type="single" collapsible className="mt-8 grid gap-3 lg:mt-0">
           {faqs.map((item) => (
             <AccordionItem
               key={item.question}

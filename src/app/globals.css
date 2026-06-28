@@ -154,11 +154,11 @@
   }
 
   .mobile-container {
-    @apply mx-auto w-full max-w-md px-6;
+    @apply mx-auto w-full max-w-md px-6 lg:max-w-6xl lg:px-8;
   }
 
   .section-spacing {
-    @apply py-12;
+    @apply py-12 lg:py-20;
   }
 
   .eyebrow {
@@ -166,11 +166,11 @@
   }
 
   .hero-title {
-    @apply font-heading text-[4.85rem] leading-[0.82] tracking-normal text-balance text-foreground;
+    @apply font-heading text-[4.85rem] leading-[0.82] tracking-normal text-balance text-foreground lg:text-[6.5rem];
   }
 
   .section-title {
-    @apply font-heading text-[3rem] leading-[0.93] tracking-normal text-balance text-foreground;
+    @apply font-heading text-[3rem] leading-[0.93] tracking-normal text-balance text-foreground lg:text-[4.35rem];
   }
 
   .card-title {

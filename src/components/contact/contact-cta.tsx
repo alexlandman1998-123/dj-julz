@@ -15,20 +15,22 @@ export function ContactCTA() {
     : `mailto:${siteConfig.email}?subject=${encodeURIComponent("DJ Julz event enquiry")}`;
 
   return (
-    <section id="contact" className="section-spacing bg-surface px-5">
-      <MotionCard className="mx-auto max-w-md overflow-hidden border-0 bg-primary p-6 text-primary-foreground">
-        <Logo variant="white" className="w-28" />
-        <p className="mt-8 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white/55">
-          Enquire today
-        </p>
-        <h2 className="mt-3 font-heading text-5xl leading-[0.92] text-white">
-          Let&apos;s make the music feel effortless.
-        </h2>
-        <p className="mt-5 text-base leading-7 text-white/68">
-          Send the date, venue and a little about the atmosphere you want. DJ Julz will
-          come back with availability and the best starting point for your event.
-        </p>
-        <div className="mt-7 grid gap-3">
+    <section id="contact" className="section-spacing bg-surface px-5 lg:px-8">
+      <MotionCard className="mx-auto max-w-md overflow-hidden border-0 bg-primary p-6 text-primary-foreground lg:grid lg:max-w-6xl lg:grid-cols-[0.9fr_1fr] lg:items-end lg:gap-16 lg:p-10">
+        <div>
+          <Logo variant="white" className="w-28" />
+          <p className="mt-8 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white/55">
+            Enquire today
+          </p>
+          <h2 className="mt-3 font-heading text-5xl leading-[0.92] text-white">
+            Let&apos;s make the music feel effortless.
+          </h2>
+          <p className="mt-5 text-base leading-7 text-white/68">
+            Send the date, venue and a little about the atmosphere you want. DJ Julz
+            will come back with availability and the best starting point for your event.
+          </p>
+        </div>
+        <div className="mt-7 grid gap-3 lg:mt-0 lg:max-w-md lg:justify-self-end lg:self-end">
           <Button asChild size="lg" variant="sage">
             <Link href="#planner" data-analytics="book_consultation_contact">
               Start Planning Your Event

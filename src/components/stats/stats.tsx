@@ -11,8 +11,8 @@ const stats = [
 
 export function Stats() {
   return (
-    <section id="trust" className="section-spacing bg-surface px-5">
-      <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
+    <section id="trust" className="section-spacing bg-surface px-5 lg:px-8">
+      <div className="mx-auto grid max-w-md grid-cols-2 gap-3 lg:max-w-6xl lg:grid-cols-4 lg:gap-5">
         {stats.map((stat, index) => (
           <MotionCard key={stat.label} className="p-5 text-center" delay={index * 0.04}>
             <stat.icon className="mx-auto mb-3 size-5 text-sage" />

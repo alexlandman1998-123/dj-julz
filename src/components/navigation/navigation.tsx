@@ -66,15 +66,38 @@ export function Navigation() {
           : "border-transparent bg-transparent",
       )}
     >
-      <div className="flex h-16 w-full items-center justify-between px-6">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
         <Link
           href="/"
           aria-label="DJ Julz home"
           className="rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/35"
         >
-          <Logo priority className="w-24" />
+          <Logo priority className="w-24 lg:w-32" />
         </Link>
+        <nav className="hidden items-center gap-1 lg:flex">
+          {links.map((link) => {
+            const activeLink = active === link.href.slice(1);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/35",
+                  activeLink
+                    ? "bg-accent text-accent-foreground"
+                    : "text-foreground/70 hover:text-foreground",
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
         <div className="flex items-center gap-2">
+          <Button asChild size="sm" className="hidden h-10 px-4 lg:inline-flex">
+            <Link href="#planner">Check My Date</Link>
+          </Button>
           <Button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -82,7 +105,7 @@ export function Navigation() {
             onClick={() => setOpen((current) => !current)}
             size="icon"
             variant="outline"
-            className="size-10"
+            className="size-10 lg:hidden"
           >
             <AnimatePresence mode="wait" initial={false}>
               <motion.span
@@ -101,7 +124,7 @@ export function Navigation() {
       <AnimatePresence initial={false}>
         {open ? (
           <motion.nav
-            className="border-t border-border bg-white px-5 py-4"
+            className="border-t border-border bg-white px-5 py-4 lg:hidden"
             initial={reduceMotion ? false : { opacity: 0, y: -8, height: 0 }}
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={reduceMotion ? undefined : { opacity: 0, y: -8, height: 0 }}

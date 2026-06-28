@@ -68,19 +68,22 @@ export function Reviews() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section id="reviews" className="section-spacing px-5">
-      <Reveal className="mx-auto max-w-md">
+    <section id="reviews" className="section-spacing px-5 lg:px-8">
+      <Reveal className="mx-auto max-w-md lg:max-w-6xl">
         <p className="eyebrow">What matters</p>
         <h2 className="section-title mt-3">
           The details guests may not notice, but feel.
         </h2>
       </Reveal>
-      <div className="mx-auto mt-8 max-w-md overflow-hidden" ref={emblaRef}>
+      <div
+        className="mx-auto mt-8 max-w-md overflow-hidden lg:max-w-6xl"
+        ref={emblaRef}
+      >
         <div className="flex gap-4">
           {reviews.map((review, index) => (
             <motion.article
               key={`${review.name}-${review.event}`}
-              className="interactive-card min-w-0 flex-[0_0_86%] p-6"
+              className="interactive-card min-w-0 flex-[0_0_86%] p-6 lg:flex-[0_0_32%]"
               initial={reduceMotion ? false : { opacity: 1, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -96,7 +99,7 @@ export function Reviews() {
           ))}
         </div>
       </div>
-      <div className="mx-auto mt-5 flex max-w-md items-center justify-between">
+      <div className="mx-auto mt-5 flex max-w-md items-center justify-between lg:max-w-6xl">
         <div className="flex gap-2">
           {scrollSnaps.map((_, index) => (
             <button

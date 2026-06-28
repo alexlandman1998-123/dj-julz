@@ -13,8 +13,8 @@ const reasons = [
 
 export function About() {
   return (
-    <section id="about" className="section-spacing px-5">
-      <div className="mx-auto max-w-md">
+    <section id="about" className="section-spacing px-5 lg:px-8">
+      <div className="mx-auto max-w-md lg:grid lg:max-w-6xl lg:grid-cols-[0.9fr_1fr] lg:items-center lg:gap-16">
         <MotionCard className="overflow-hidden bg-surface">
           <div className="relative aspect-[5/4]">
             <Image
@@ -28,7 +28,7 @@ export function About() {
             />
           </div>
         </MotionCard>
-        <Reveal className="mt-8">
+        <Reveal className="mt-8 lg:mt-0">
           <p className="eyebrow">About DJ Julz</p>
           <h2 className="section-title mt-3">
             Music should make the whole event feel easier.
@@ -43,7 +43,7 @@ export function About() {
             lands on time, speeches move cleanly, dinner has the right atmosphere and
             the dance floor builds naturally when guests are ready.
           </p>
-          <div className="premium-card mt-6 p-5">
+          <div className="premium-card mt-6 p-5 lg:p-6">
             <div className="flex items-center gap-3">
               <div className="grid size-10 place-items-center rounded-full bg-accent text-accent-foreground">
                 <UsersRound className="size-5" />
