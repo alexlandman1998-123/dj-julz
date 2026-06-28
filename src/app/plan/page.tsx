@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
-import { RoutePageShell } from "@/components/shared/route-page-shell";
+import { Footer } from "@/components/footer/footer";
+import { Navigation } from "@/components/navigation/navigation";
+import { PlanHero } from "@/components/planner/PlanHero";
+import { PlannerWizard } from "@/components/planner/PlannerWizard";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -14,10 +17,13 @@ export const metadata: Metadata = {
 
 export default function PlanPage() {
   return (
-    <RoutePageShell
-      eyebrow="Plan"
-      title="Plan your event"
-      description="A dedicated planning page is ready for the booking flow and planner wireframe."
-    />
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-background text-foreground">
+        <PlanHero />
+        <PlannerWizard />
+      </main>
+      <Footer />
+    </>
   );
 }
