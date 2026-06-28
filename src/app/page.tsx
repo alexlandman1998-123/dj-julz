@@ -3,7 +3,6 @@ import { Availability } from "@/components/availability/availability";
 import { ContactCTA } from "@/components/contact/contact-cta";
 import { FAQ } from "@/components/faq/faq";
 import { Footer } from "@/components/footer/footer";
-import { Gallery } from "@/components/gallery/gallery";
 import { Hero } from "@/components/home/Hero";
 import { Navigation } from "@/components/navigation/navigation";
 import { Packages } from "@/components/packages/packages";
@@ -27,7 +26,6 @@ export default function Home() {
         <About />
         <Packages />
         <Planner />
-        <Gallery />
         <Reviews />
         <Availability />
         <FAQ />

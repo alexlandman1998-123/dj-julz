@@ -14,7 +14,7 @@ export function FeaturedExperience({ experience, number }: FeaturedExperiencePro
   return (
     <section id="featured-experience" className="bg-white px-5 py-12 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-md lg:grid lg:max-w-6xl lg:grid-cols-[0.9fr_1fr] lg:items-center lg:gap-14">
-        <div className="relative min-h-[34rem] overflow-hidden rounded-[1.35rem] bg-primary text-primary-foreground lg:min-h-[44rem]">
+        <div className="relative min-h-[34rem] overflow-hidden rounded-[0.75rem] bg-primary text-primary-foreground shadow-[0_18px_50px_rgb(24_24_27_/_0.08)] lg:min-h-[44rem]">
           <Image
             key={experience.id}
             src={experience.image}

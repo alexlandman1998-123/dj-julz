@@ -13,12 +13,12 @@ const reasons = [
 
 export function About() {
   return (
-    <section id="about" className="section-spacing px-5 lg:px-8">
+    <section id="about" className="px-5 pt-8 pb-12 lg:px-8 lg:pt-10 lg:pb-20">
       <div className="mx-auto max-w-md lg:grid lg:max-w-6xl lg:grid-cols-[0.9fr_1fr] lg:items-center lg:gap-16">
         <MotionCard className="overflow-hidden bg-surface">
           <div className="relative aspect-[5/4]">
             <Image
-              src="/images/dj-julz-hero-optimized.jpg"
+              src="/images/generated/ceremony-setup.jpg"
               alt="DJ booth prepared for a polished wedding reception in Gauteng"
               fill
               sizes="(max-width: 640px) 90vw, 420px"

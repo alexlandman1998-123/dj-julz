@@ -12,12 +12,14 @@ import { navItems } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const links = navItems;
+const darkHeroRoutes = new Set(["/about", "/experiences"]);
 
 export function Navigation() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const reduceMotion = useReducedMotion();
   const pathname = usePathname();
+  const overDarkHero = darkHeroRoutes.has(pathname) && !scrolled && !open;
 
   useEffect(() => {
     function onScroll() {
@@ -31,21 +33,28 @@ export function Navigation() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ease-[var(--ease-premium)]",
-        scrolled || open
-          ? "border-border bg-white/92 shadow-[0_12px_34px_rgb(24_24_27_/_0.07)] backdrop-blur-xl"
-          : "border-transparent bg-transparent",
-      )}
-    >
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
+    <header className="fixed inset-x-0 top-3 z-50 px-3 transition-all duration-300 ease-[var(--ease-premium)] lg:top-4 lg:px-5">
+      <div
+        className={cn(
+          "mx-auto flex h-16 w-full max-w-[96rem] items-center justify-between rounded-full border px-5 shadow-[0_18px_55px_rgb(24_24_27_/_0.08)] backdrop-blur-2xl transition-all duration-300 ease-[var(--ease-premium)] lg:h-[4.6rem] lg:px-7",
+          overDarkHero
+            ? "border-white/10 bg-[#173f36]/96 text-white shadow-[0_18px_55px_rgb(23_63_54_/_0.22)]"
+            : "border-border/80 bg-white/88 text-foreground",
+          scrolled || open
+            ? "bg-white/94 text-foreground shadow-[0_14px_42px_rgb(24_24_27_/_0.08)]"
+            : null,
+        )}
+      >
         <Link
           href="/"
           aria-label="DJ Julz home"
           className="rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/35"
         >
-          <Logo priority className="w-24 lg:w-32" />
+          <Logo
+            priority
+            variant={overDarkHero ? "white" : "black"}
+            className="w-24 transition-opacity duration-300 lg:w-30"
+          />
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
           {links.map((link) => {
@@ -58,8 +67,12 @@ export function Navigation() {
                 className={cn(
                   "rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/35",
                   activeLink
-                    ? "bg-accent text-accent-foreground"
-                    : "text-foreground/70 hover:text-foreground",
+                    ? overDarkHero
+                      ? "bg-white/12 text-white"
+                      : "bg-accent text-accent-foreground"
+                    : overDarkHero
+                      ? "text-white/76 hover:text-white"
+                      : "text-foreground/70 hover:text-foreground",
                 )}
               >
                 {link.label}
@@ -68,7 +81,15 @@ export function Navigation() {
           })}
         </nav>
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="hidden h-10 px-4 lg:inline-flex">
+          <Button
+            asChild
+            size="sm"
+            className={cn(
+              "hidden h-11 rounded-full px-5 lg:inline-flex",
+              overDarkHero &&
+                "bg-[#075745] text-white shadow-none hover:bg-[#075745]/90",
+            )}
+          >
             <Link href="/plan">Check My Date</Link>
           </Button>
           <Button
@@ -78,7 +99,11 @@ export function Navigation() {
             onClick={() => setOpen((current) => !current)}
             size="icon"
             variant="outline"
-            className="size-10 lg:hidden"
+            className={cn(
+              "size-10 rounded-full lg:hidden",
+              overDarkHero &&
+                "border-white/24 bg-white/8 text-white hover:bg-white/14 hover:text-white",
+            )}
           >
             <AnimatePresence mode="wait" initial={false}>
               <motion.span
@@ -97,7 +122,7 @@ export function Navigation() {
       <AnimatePresence initial={false}>
         {open ? (
           <motion.nav
-            className="border-t border-border bg-white px-5 py-4 lg:hidden"
+            className="mx-auto mt-2 max-w-md rounded-[1.35rem] border border-border bg-white px-4 py-4 shadow-[0_18px_55px_rgb(24_24_27_/_0.1)] lg:hidden"
             initial={reduceMotion ? false : { opacity: 0, y: -8, height: 0 }}
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={reduceMotion ? undefined : { opacity: 0, y: -8, height: 0 }}

@@ -32,7 +32,7 @@ export function EventTimeline() {
                 </div>
                 <div className="relative aspect-square overflow-hidden rounded-[0.9rem] bg-white">
                   <Image
-                    src={experienceSections.timeline.image}
+                    src={step.image}
                     alt={`${step.title} event moment`}
                     fill
                     sizes="104px"

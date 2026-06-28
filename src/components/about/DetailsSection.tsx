@@ -31,7 +31,7 @@ export function DetailsSection() {
         <Reveal className="mt-10 lg:mt-0" delay={0.06}>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-white">
             <Image
-              src="/images/dj-julz-hero.png"
+              src="/images/generated/dj-setup-reception.jpg"
               alt="DJ headphones and event equipment detail"
               fill
               sizes="(max-width: 1024px) 90vw, 48vw"

@@ -30,7 +30,7 @@ export function AboutCTA() {
         </div>
         <div className="relative min-h-[22rem] lg:min-h-[34rem]">
           <Image
-            src="/images/dj-julz-hero.png"
+            src="/images/generated/private-dancefloor.jpg"
             alt="Celebration crowd ready for DJ Julz"
             fill
             sizes="(max-width: 1024px) 90vw, 44vw"

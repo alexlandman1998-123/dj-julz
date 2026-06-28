@@ -4,13 +4,48 @@ import { MotionCard, Reveal } from "@/components/shared/motion";
 import { warmBlurDataUrl } from "@/lib/image-placeholders";
 
 const eventSteps = [
-  { time: "3:00 PM", title: "Setup", position: "72% center" },
-  { time: "4:00 PM", title: "Guests Arrive", position: "35% center" },
-  { time: "4:30 PM", title: "Ceremony", position: "48% center" },
-  { time: "6:00 PM", title: "Dinner", position: "25% center" },
-  { time: "7:30 PM", title: "First Dance", position: "58% center" },
-  { time: "9:00 PM", title: "Dancefloor Opens", position: "50% center" },
-  { time: "12:00 AM", title: "Last Song", position: "40% center" },
+  {
+    time: "3:00 PM",
+    title: "Setup",
+    image: "/images/generated/dj-setup-reception.jpg",
+    position: "72% center",
+  },
+  {
+    time: "4:00 PM",
+    title: "Guests Arrive",
+    image: "/images/generated/ceremony-setup.jpg",
+    position: "35% center",
+  },
+  {
+    time: "4:30 PM",
+    title: "Ceremony",
+    image: "/images/generated/ceremony-setup.jpg",
+    position: "48% center",
+  },
+  {
+    time: "6:00 PM",
+    title: "Dinner",
+    image: "/images/generated/wedding-first-dance.jpg",
+    position: "25% center",
+  },
+  {
+    time: "7:30 PM",
+    title: "First Dance",
+    image: "/images/generated/wedding-first-dance.jpg",
+    position: "58% center",
+  },
+  {
+    time: "9:00 PM",
+    title: "Dancefloor Opens",
+    image: "/images/generated/private-dancefloor.jpg",
+    position: "50% center",
+  },
+  {
+    time: "12:00 AM",
+    title: "Last Song",
+    image: "/images/generated/dj-behind-decks.jpg",
+    position: "40% center",
+  },
 ] as const;
 
 export function EventTimeline() {
@@ -47,7 +82,7 @@ export function EventTimeline() {
                 </div>
                 <div className="relative aspect-square overflow-hidden rounded-[0.9rem] bg-surface">
                   <Image
-                    src="/images/dj-julz-hero-optimized.jpg"
+                    src={step.image}
                     alt={`${step.title} event moment`}
                     fill
                     sizes="104px"

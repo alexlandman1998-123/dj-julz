@@ -20,7 +20,7 @@ export function FaqHero() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-border bg-surface soft-shadow lg:rounded-[2rem]">
             <div className="relative aspect-[1.18/1] lg:aspect-[1.75/1]">
               <Image
-                src="/images/dj-julz-hero-optimized.jpg"
+                src="/images/generated/dj-setup-reception.jpg"
                 alt="DJ Julz behind the decks at an event"
                 fill
                 priority

@@ -25,7 +25,7 @@ export function AboutHero() {
     >
       <motion.div className="absolute inset-0" style={{ y: imageY }}>
         <Image
-          src="/images/dj-julz-hero-optimized.jpg"
+          src="/images/generated/dj-behind-decks.jpg"
           alt="DJ Julz preparing music for an event"
           fill
           priority

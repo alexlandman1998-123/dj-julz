@@ -28,9 +28,9 @@ export function HeroTrustCards() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative z-10 bg-background px-5 pb-12 lg:px-8 lg:pb-16">
+    <div className="relative z-20 bg-background px-5 pb-8 lg:px-8 lg:pb-6">
       <motion.div
-        className="mx-auto grid max-w-md gap-3 rounded-[1.45rem] border border-border bg-white/92 p-3 shadow-[0_26px_80px_rgb(24_24_27_/_0.08)] backdrop-blur-xl lg:max-w-6xl lg:-translate-y-10 lg:grid-cols-3 lg:gap-0 lg:rounded-[1.75rem] lg:p-0"
+        className="mx-auto -mt-10 grid max-w-md gap-3 rounded-[1.25rem] border border-border bg-white/94 p-3 shadow-[0_20px_64px_rgb(24_24_27_/_0.07)] backdrop-blur-xl lg:-mt-[4.5rem] lg:max-w-[calc(100vw-4rem)] lg:grid-cols-3 lg:gap-0 lg:rounded-[1.35rem] lg:p-0 xl:max-w-[calc(100vw-8rem)]"
         initial={reduceMotion ? false : "hidden"}
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}

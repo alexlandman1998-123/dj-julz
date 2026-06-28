@@ -36,7 +36,7 @@ export const experienceHero = {
   title: "Choose the experience that fits your day.",
   description:
     "Every celebration has its own rhythm. Let's find the experience that's right for you.",
-  image: "/images/dj-julz-hero-optimized.jpg",
+  image: "/images/generated/dj-setup-reception.jpg",
 } as const;
 
 export const experienceSections = {
@@ -55,7 +55,7 @@ export const experienceSections = {
   timeline: {
     eyebrow: "One Night",
     title: "From Start To Finish",
-    image: "/images/dj-julz-hero-optimized.jpg",
+    image: "/images/generated/dj-setup-reception.jpg",
   },
   enhancements: {
     eyebrow: "Enhance Your Experience",
@@ -82,7 +82,7 @@ export const experiences: Experience[] = [
     description:
       "Designed for couples who want a calm, professional wedding DJ for the core moments of the day.",
     startingPrice: "R6,500",
-    image: "/images/dj-julz-hero.png",
+    image: "/images/generated/wedding-first-dance.jpg",
     icon: Sparkles,
     included: [
       {
@@ -119,7 +119,7 @@ export const experiences: Experience[] = [
     description:
       "A more elevated wedding experience with enhanced production for couples who want the room to feel beautifully finished.",
     startingPrice: "R9,000",
-    image: "/images/dj-julz-hero-optimized.jpg",
+    image: "/images/generated/dj-setup-reception.jpg",
     icon: Gem,
     included: [
       {
@@ -155,7 +155,7 @@ export const experiences: Experience[] = [
     description:
       "A polished music and sound solution for conferences, product launches, gala dinners, awards evenings and year-end functions.",
     startingPrice: "R4,000",
-    image: "/images/dj-julz-hero.png",
+    image: "/images/generated/corporate-event.jpg",
     icon: BriefcaseBusiness,
     included: [
       {
@@ -195,7 +195,7 @@ export const experiences: Experience[] = [
     description:
       "Flexible music for milestone birthdays, engagements, anniversaries, family celebrations and private functions.",
     startingPrice: "R3,000",
-    image: "/images/dj-julz-hero-optimized.jpg",
+    image: "/images/generated/private-dancefloor.jpg",
     icon: PartyPopper,
     included: [
       {
@@ -228,13 +228,48 @@ export const experiences: Experience[] = [
 ];
 
 export const eventTimeline = [
-  { time: "3:00 PM", title: "Setup", imagePosition: "72% center" },
-  { time: "4:00 PM", title: "Guests Arrive", imagePosition: "35% center" },
-  { time: "4:30 PM", title: "Ceremony", imagePosition: "48% center" },
-  { time: "6:00 PM", title: "Dinner", imagePosition: "25% center" },
-  { time: "7:30 PM", title: "First Dance", imagePosition: "58% center" },
-  { time: "9:00 PM", title: "Dancefloor Opens", imagePosition: "50% center" },
-  { time: "12:00 AM", title: "Last Song", imagePosition: "40% center" },
+  {
+    time: "3:00 PM",
+    title: "Setup",
+    image: "/images/generated/dj-setup-reception.jpg",
+    imagePosition: "72% center",
+  },
+  {
+    time: "4:00 PM",
+    title: "Guests Arrive",
+    image: "/images/generated/ceremony-setup.jpg",
+    imagePosition: "35% center",
+  },
+  {
+    time: "4:30 PM",
+    title: "Ceremony",
+    image: "/images/generated/ceremony-setup.jpg",
+    imagePosition: "48% center",
+  },
+  {
+    time: "6:00 PM",
+    title: "Dinner",
+    image: "/images/generated/wedding-first-dance.jpg",
+    imagePosition: "25% center",
+  },
+  {
+    time: "7:30 PM",
+    title: "First Dance",
+    image: "/images/generated/wedding-first-dance.jpg",
+    imagePosition: "58% center",
+  },
+  {
+    time: "9:00 PM",
+    title: "Dancefloor Opens",
+    image: "/images/generated/private-dancefloor.jpg",
+    imagePosition: "50% center",
+  },
+  {
+    time: "12:00 AM",
+    title: "Last Song",
+    image: "/images/generated/dj-behind-decks.jpg",
+    imagePosition: "40% center",
+  },
 ] as const;
 
 export const enhancements = [

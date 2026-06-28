@@ -149,7 +149,7 @@ export function Hero() {
         >
           <div className="relative aspect-[4/5]">
             <Image
-              src="/images/dj-julz-hero-optimized.jpg"
+              src="/images/generated/dj-setup-reception.jpg"
               alt="DJ Julz wedding and event DJ setup for a Gauteng celebration"
               fill
               priority

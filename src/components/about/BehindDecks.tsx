@@ -9,7 +9,7 @@ export function BehindDecks() {
       <Reveal className="mx-auto max-w-md lg:max-w-6xl">
         <div className="relative min-h-[29rem] overflow-hidden rounded-[1.35rem] bg-primary text-primary-foreground lg:min-h-[38rem]">
           <Image
-            src="/images/dj-julz-hero.png"
+            src="/images/generated/dj-behind-decks.jpg"
             alt="DJ Julz reading the room from behind the decks"
             fill
             sizes="(max-width: 1024px) 90vw, 72rem"

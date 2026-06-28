@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "/images/dj-julz-hero-optimized.jpg",
+        url: "/images/generated/dj-setup-reception.jpg",
         width: 1200,
         height: 675,
         alt: "DJ Julz wedding and event DJ setup in Gauteng",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DJ Julz | Premium Wedding & Event DJ Pretoria",
     description: siteConfig.description,
-    images: ["/images/dj-julz-hero-optimized.jpg"],
+    images: ["/images/generated/dj-setup-reception.jpg"],
   },
   keywords: [
     "Wedding DJ Pretoria",

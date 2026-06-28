@@ -31,6 +31,7 @@ const packages = [
       "Full setup and breakdown",
     ],
     icon: Heart,
+    image: "/images/generated/wedding-first-dance.jpg",
     imagePosition: "object-[48%_center]",
   },
   {
@@ -45,6 +46,7 @@ const packages = [
       "Atmosphere-led reception and party flow",
     ],
     icon: Sparkles,
+    image: "/images/generated/dj-setup-reception.jpg",
     imagePosition: "object-[62%_center]",
   },
   {
@@ -60,6 +62,7 @@ const packages = [
       "Full setup and breakdown",
     ],
     icon: Building2,
+    image: "/images/generated/corporate-event.jpg",
     imagePosition: "object-[72%_center]",
   },
   {
@@ -75,6 +78,7 @@ const packages = [
       "Full setup and breakdown",
     ],
     icon: PartyPopper,
+    image: "/images/generated/private-dancefloor.jpg",
     imagePosition: "object-[38%_center]",
   },
 ];
@@ -145,6 +149,14 @@ const bookingNotes = [
   },
 ];
 
+function getExperienceId(title: string) {
+  return `experience-${title
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")}`;
+}
+
 export function Packages() {
   return (
     <section id="packages" className="section-spacing bg-surface px-5 lg:px-8">
@@ -157,54 +169,93 @@ export function Packages() {
             starting points below make it easier to choose the right conversation.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <Reveal className="mt-8">
+          <div className="-mx-5 overflow-x-auto px-5 pb-1 lg:mx-0 lg:px-0">
+            <div className="flex min-w-max gap-3">
+              {packages.map((item) => (
+                <a
+                  key={item.title}
+                  href={`#${getExperienceId(item.title)}`}
+                  className="inline-flex min-h-14 items-center gap-3 rounded-[0.85rem] border border-border bg-white px-4 text-[0.68rem] font-bold tracking-[0.14em] text-foreground uppercase shadow-[0_10px_28px_rgb(24_24_27_/_0.035)] outline-none transition-all duration-[var(--duration-fast)] ease-[var(--ease-premium)] hover:border-sage/40 focus-visible:ring-3 focus-visible:ring-ring/35"
+                >
+                  <span className="grid size-8 place-items-center rounded-full bg-accent text-sage">
+                    <item.icon className="size-4" aria-hidden />
+                  </span>
+                  {item.title
+                    .replace(" Experience", "")
+                    .replace("Birthday & ", "")
+                    .replace("Essential ", "")}
+                </a>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+        <div className="-mx-5 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-6 scroll-smooth lg:mx-0 lg:gap-5 lg:px-0">
           {packages.map((item, index) => (
             <MotionCard
               key={item.title}
-              className="overflow-hidden p-4"
+              id={getExperienceId(item.title)}
+              className="min-w-[85vw] snap-start overflow-hidden p-0 sm:min-w-[24rem] lg:min-w-[28rem] xl:min-w-[30rem]"
               delay={index * 0.05}
             >
-              <div className="grid grid-cols-[6rem_1fr] gap-4">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface">
-                  <Image
-                    src="/images/dj-julz-hero-optimized.jpg"
-                    alt=""
-                    fill
-                    sizes="96px"
-                    className={`object-cover ${item.imagePosition}`}
-                    placeholder="blur"
-                    blurDataURL={warmBlurDataUrl}
-                  />
-                  <div className="absolute -right-3 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full border border-border bg-white text-foreground shadow-sm">
-                    <item.icon className="size-5" />
+              <div className="relative aspect-[1.45/1] overflow-hidden bg-surface">
+                <Image
+                  src={item.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 85vw, 30rem"
+                  className={`object-cover ${item.imagePosition}`}
+                  placeholder="blur"
+                  blurDataURL={warmBlurDataUrl}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/6 via-black/20 to-black/64" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white">
+                  <div>
+                    <p className="text-[0.68rem] font-bold tracking-[0.16em] text-white/66 uppercase">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-2 font-heading text-[2.55rem] leading-[0.9] tracking-normal">
+                      {item.title.replace(" Experience", "")}
+                    </h3>
+                  </div>
+                  <div className="grid size-13 shrink-0 place-items-center rounded-full border border-white/28 bg-white/92 text-foreground shadow-sm">
+                    <item.icon className="size-5" aria-hidden />
                   </div>
                 </div>
-                <div className="min-w-0 py-1">
-                  <h3 className="card-title">{item.title}</h3>
+              </div>
+              <div className="p-5">
+                <div>
                   <p className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-sage">
                     {item.price}
                   </p>
-                  <p className="caption mt-2">{item.description}</p>
-                  <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground">
-                    {item.includes.map((detail) => (
-                      <li key={detail} className="flex gap-2">
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-sage" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="caption mt-3">{item.description}</p>
                 </div>
+                <ul className="mt-5 grid gap-2 text-sm leading-6 text-muted-foreground">
+                  {item.includes.slice(0, 3).map((detail) => (
+                    <li key={detail} className="flex gap-2">
+                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-sage" />
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild variant="ghost" className="mt-5 px-0 text-sage">
+                  <Link
+                    href="#planner"
+                    data-analytics={`package_${item.title.toLowerCase().replace(/\s+/g, "_")}`}
+                  >
+                    Enquire about this experience <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
               </div>
-              <Button asChild variant="ghost" className="mt-5 px-0 text-sage">
-                <Link
-                  href="#planner"
-                  data-analytics={`package_${item.title.toLowerCase().replace(/\s+/g, "_")}`}
-                >
-                  Enquire about this experience <ArrowRight className="size-4" />
-                </Link>
-              </Button>
             </MotionCard>
           ))}
+        </div>
+        <div className="mt-1 hidden items-center gap-3 lg:flex" aria-hidden="true">
+          <span className="h-px flex-1 bg-border" />
+          <p className="text-[0.65rem] font-bold tracking-[0.18em] text-muted-foreground uppercase">
+            Scroll to compare
+          </p>
+          <ArrowRight className="size-4 text-sage" />
         </div>
         <Reveal className="mt-12">
           <p className="eyebrow">Enhancements</p>

@@ -29,7 +29,7 @@ export function ApproachSection() {
         <Reveal className="mt-10 lg:mt-0" delay={0.06}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-surface">
             <Image
-              src="/images/dj-julz-hero-optimized.jpg"
+              src="/images/generated/dj-behind-decks.jpg"
               alt="DJ Julz focused behind the decks"
               fill
               sizes="(max-width: 1024px) 90vw, 40vw"

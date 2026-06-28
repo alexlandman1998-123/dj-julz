@@ -32,7 +32,7 @@ export function ExperiencePreviewCards({
               key={experience.id}
               type="button"
               onClick={() => onSelect(experience.id)}
-              className="group relative min-h-[28rem] overflow-hidden rounded-[1.35rem] bg-primary text-left text-primary-foreground shadow-[0_18px_50px_rgb(24_24_27_/_0.08)] outline-none transition-transform duration-[var(--duration-base)] ease-[var(--ease-premium)] hover:-translate-y-1 focus-visible:ring-3 focus-visible:ring-ring/35 active:scale-[0.985]"
+              className="group relative min-h-[28rem] overflow-hidden rounded-[0.75rem] bg-primary text-left text-primary-foreground shadow-[0_18px_50px_rgb(24_24_27_/_0.08)] outline-none transition-transform duration-[var(--duration-base)] ease-[var(--ease-premium)] hover:-translate-y-1 focus-visible:ring-3 focus-visible:ring-ring/35 active:scale-[0.985]"
             >
               <Image
                 src={experience.image}

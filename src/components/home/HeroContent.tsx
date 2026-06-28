@@ -1,17 +1,9 @@
 "use client";
 
-import {
-  ArrowRight,
-  BriefcaseBusiness,
-  CalendarDays,
-  Heart,
-  MapPin,
-  Music2,
-} from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 
-import { HeroTrustRow } from "@/components/home/HeroTrustRow";
 import { Button } from "@/components/ui/button";
 
 const easing = [0.22, 1, 0.36, 1] as const;
@@ -21,19 +13,12 @@ const lineVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const trustItems = [
-  { icon: Music2, label: "Weddings" },
-  { icon: BriefcaseBusiness, label: "Corporate Events" },
-  { icon: Heart, label: "Private Celebrations" },
-  { icon: MapPin, label: "Pretoria & Gauteng" },
-] as const;
-
 export function HeroContent() {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      className="relative z-10 lg:max-w-xl"
+      className="relative z-10 lg:max-w-[34rem] lg:pt-14"
       initial={reduceMotion ? false : "hidden"}
       animate="visible"
       variants={{
@@ -54,7 +39,7 @@ export function HeroContent() {
         Wedding DJ Pretoria & Gauteng
       </motion.p>
 
-      <h1 className="mt-5 font-heading text-[4.75rem] leading-[0.82] tracking-normal text-balance text-foreground sm:text-[5.5rem] lg:text-[6.7rem]">
+      <h1 className="mt-5 font-heading text-[4.75rem] leading-[0.88] tracking-normal text-balance text-foreground sm:text-[5.5rem] lg:text-[6.65rem] lg:leading-[0.86]">
         {["Music for", "moments"].map((line) => (
           <motion.span
             key={line}
@@ -75,7 +60,7 @@ export function HeroContent() {
       </h1>
 
       <motion.p
-        className="mt-6 max-w-[21rem] text-base leading-7 text-muted-foreground sm:max-w-[27rem] lg:max-w-[34rem] lg:text-lg lg:leading-8"
+        className="mt-6 max-w-[21rem] text-base leading-7 text-muted-foreground sm:max-w-[27rem] lg:max-w-[30rem] lg:text-lg lg:leading-8"
         variants={lineVariants}
         transition={{ duration: 0.48, ease: easing }}
       >
@@ -84,11 +69,11 @@ export function HeroContent() {
       </motion.p>
 
       <motion.div
-        className="mt-8 grid gap-3 sm:grid-cols-2 lg:max-w-[34rem]"
+        className="mt-9 grid gap-4 sm:grid-cols-2 lg:max-w-[31rem]"
         variants={lineVariants}
         transition={{ duration: 0.42, ease: easing }}
       >
-        <Button asChild size="lg" variant="primary" className="h-14 w-full">
+        <Button asChild size="lg" variant="primary" className="h-[3.65rem] w-full">
           <Link href="/plan" data-analytics="hero_check_my_date">
             <CalendarDays className="size-4" aria-hidden />
             Check My Date
@@ -99,7 +84,7 @@ export function HeroContent() {
           asChild
           size="lg"
           variant="outline"
-          className="h-14 w-full border-foreground/18 bg-white/78 backdrop-blur hover:bg-white"
+          className="h-[3.65rem] w-full border-foreground/18 bg-white/78 backdrop-blur hover:bg-white"
         >
           <Link href="/experiences" data-analytics="hero_explore_experiences">
             Explore Experiences
@@ -107,8 +92,6 @@ export function HeroContent() {
           </Link>
         </Button>
       </motion.div>
-
-      <HeroTrustRow items={trustItems} />
     </motion.div>
   );
 }

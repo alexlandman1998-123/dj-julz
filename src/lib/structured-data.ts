@@ -13,7 +13,7 @@ export function getStructuredData() {
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone || undefined,
-    image: `${siteConfig.url}/images/dj-julz-hero-optimized.jpg`,
+    image: `${siteConfig.url}/images/generated/dj-setup-reception.jpg`,
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.location.city,

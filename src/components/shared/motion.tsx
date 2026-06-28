@@ -46,15 +46,18 @@ export function MotionCard({
   children,
   className,
   delay = 0,
+  id,
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  id?: string;
 }) {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
+      id={id}
       className={cn("interactive-card", className)}
       initial={reduceMotion ? false : "hidden"}
       whileInView="visible"

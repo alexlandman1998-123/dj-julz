@@ -13,31 +13,37 @@ import { warmBlurDataUrl } from "@/lib/image-placeholders";
 const moments = [
   {
     title: "The reception feels effortless",
+    src: "/images/generated/dj-setup-reception.jpg",
     alt: "DJ setup prepared for a warm wedding reception in Gauteng",
     position: "object-[58%_center]",
   },
   {
     title: "Ceremony music arrives on cue",
+    src: "/images/generated/ceremony-setup.jpg",
     alt: "Ceremony music setup prepared before guests arrive",
     position: "object-[68%_center]",
   },
   {
     title: "Professional sound for formal rooms",
+    src: "/images/generated/corporate-event.jpg",
     alt: "Polished event music setup for a corporate function",
     position: "object-[50%_center]",
   },
   {
     title: "A clean setup for refined venues",
+    src: "/images/generated/dj-behind-decks.jpg",
     alt: "Professional DJ controller and event sound setup",
     position: "object-[74%_center]",
   },
   {
     title: "Prepared before guests arrive",
+    src: "/images/generated/wedding-first-dance.jpg",
     alt: "Behind the scenes preparation before a private celebration",
     position: "object-[40%_center]",
   },
   {
     title: "Music shaped around your people",
+    src: "/images/generated/private-dancefloor.jpg",
     alt: "Private celebration atmosphere with DJ lighting and guests",
     position: "object-[62%_center]",
   },
@@ -120,7 +126,7 @@ export function Gallery() {
               }`}
             >
               <Image
-                src="/images/dj-julz-hero-optimized.jpg"
+                src={moment.src}
                 alt={moment.alt}
                 fill
                 sizes="(max-width: 640px) 45vw, (max-width: 1024px) 190px, 16vw"
@@ -174,7 +180,7 @@ export function Gallery() {
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-surface">
                 <Image
-                  src="/images/dj-julz-hero-optimized.jpg"
+                  src={activeMoment.src}
                   alt={activeMoment.alt}
                   fill
                   sizes="100vw"
