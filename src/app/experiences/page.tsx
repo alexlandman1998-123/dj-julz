@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 
-import { RoutePageShell } from "@/components/shared/route-page-shell";
+import { ExperienceHero } from "@/components/experiences/ExperienceHero";
+import { ExperiencesPageClient } from "@/components/experiences/ExperiencesPageClient";
+import { Footer } from "@/components/footer/footer";
+import { Navigation } from "@/components/navigation/navigation";
 import { siteConfig } from "@/config/site";
+import { experienceHero } from "@/data/experiences";
 
 export const metadata: Metadata = {
   title: "Experiences",
@@ -14,10 +18,13 @@ export const metadata: Metadata = {
 
 export default function ExperiencesPage() {
   return (
-    <RoutePageShell
-      eyebrow="Experiences"
-      title="Event experiences"
-      description="A dedicated experiences page is ready for package wireframes and service details."
-    />
+    <>
+      <Navigation />
+      <main className="bg-background text-foreground">
+        <ExperienceHero {...experienceHero} />
+        <ExperiencesPageClient />
+      </main>
+      <Footer />
+    </>
   );
 }
