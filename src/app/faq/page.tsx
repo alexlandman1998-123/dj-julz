@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 
-import { RoutePageShell } from "@/components/shared/route-page-shell";
+import { FaqAccordion } from "@/components/faq/FaqAccordion";
+import { FaqHelpCard } from "@/components/faq/FaqHelpCard";
+import { FaqHero } from "@/components/faq/FaqHero";
+import { FaqTrustStrip } from "@/components/faq/FaqTrustStrip";
+import { Footer } from "@/components/footer/footer";
+import { Navigation } from "@/components/navigation/navigation";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Frequently Asked Questions",
   description:
-    "Answers to common questions about DJ Julz bookings, travel, music requests and equipment.",
+    "Honest answers to common DJ Julz booking questions, including availability, pricing, sound, lighting, travel and music requests.",
   alternates: {
     canonical: `${siteConfig.url}/faq`,
   },
@@ -14,10 +19,23 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <RoutePageShell
-      eyebrow="FAQ"
-      title="Frequently asked questions"
-      description="A dedicated FAQ page is ready for the full question-and-answer wireframe."
-    />
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-background text-foreground">
+        <FaqHero />
+        <section className="px-5 pb-12 lg:px-8 lg:pb-16">
+          <div className="mx-auto max-w-md rounded-[1.5rem] border border-border bg-white p-3 shadow-[0_18px_60px_rgb(24_24_27_/_0.055)] lg:grid lg:max-w-6xl lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-5 lg:rounded-[2rem] lg:p-5">
+            <div className="p-1 lg:p-3">
+              <FaqAccordion />
+            </div>
+            <div className="mt-4 lg:mt-0">
+              <FaqHelpCard />
+            </div>
+          </div>
+        </section>
+        <FaqTrustStrip />
+      </main>
+      <Footer />
+    </>
   );
 }
