@@ -4,13 +4,7 @@ import Link from "next/link";
 import { Logo } from "@/components/shared/logo";
 import { Reveal } from "@/components/shared/motion";
 import { siteConfig } from "@/config/site";
-
-const links = [
-  { label: "About", href: "#about" },
-  { label: "Experiences", href: "#packages" },
-  { label: "Plan", href: "#planner" },
-  { label: "Enquire", href: "#contact" },
-];
+import { navItems } from "@/data/site";
 
 export function Footer() {
   const socialLinks = [
@@ -41,7 +35,7 @@ export function Footer() {
           </p>
         </div>
         <nav className="mt-6 grid grid-cols-2 gap-3 lg:mt-0 lg:min-w-80">
-          {links.map((link) => (
+          {navItems.map((link) => (
             <Link
               key={link.href}
               href={link.href}

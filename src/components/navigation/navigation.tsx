@@ -3,25 +3,21 @@
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
+import { navItems } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { label: "About", href: "#about" },
-  { label: "Experiences", href: "#packages" },
-  { label: "Plan", href: "#planner" },
-  { label: "Details", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
-];
+const links = navItems;
 
 export function Navigation() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("hero");
   const reduceMotion = useReducedMotion();
+  const pathname = usePathname();
 
   useEffect(() => {
     function onScroll() {
@@ -32,29 +28,6 @@ export function Navigation() {
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const sections = links
-      .map((link) => document.querySelector(link.href))
-      .filter((section): section is Element => Boolean(section));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible?.target.id) {
-          setActive(visible.target.id);
-        }
-      },
-      { rootMargin: "-35% 0px -55% 0px", threshold: [0.12, 0.35, 0.6] },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -76,7 +49,7 @@ export function Navigation() {
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
           {links.map((link) => {
-            const activeLink = active === link.href.slice(1);
+            const activeLink = pathname === link.href;
 
             return (
               <Link
@@ -96,7 +69,7 @@ export function Navigation() {
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="hidden h-10 px-4 lg:inline-flex">
-            <Link href="#planner">Check My Date</Link>
+            <Link href="/plan">Check My Date</Link>
           </Button>
           <Button
             type="button"
@@ -132,12 +105,12 @@ export function Navigation() {
           >
             <div className="mx-auto grid max-w-md gap-2">
               <Button asChild size="lg" className="mb-2 w-full">
-                <Link href="#planner" onClick={() => setOpen(false)}>
+                <Link href="/plan" onClick={() => setOpen(false)}>
                   Check My Date
                 </Link>
               </Button>
               {links.map((link, index) => {
-                const activeLink = active === link.href.slice(1);
+                const activeLink = pathname === link.href;
 
                 return (
                   <motion.div

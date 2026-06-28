@@ -9,10 +9,11 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Experiences", href: "#packages" },
-  { label: "Plan", href: "#planner" },
-  { label: "FAQ", href: "#faq" },
+  { label: "About", href: "/about" },
+  { label: "Experiences", href: "/experiences" },
+  { label: "Plan", href: "/plan" },
+  { label: "Details", href: "/details" },
+  { label: "FAQ", href: "/faq" },
 ] as const;
 
 export const stats = [
